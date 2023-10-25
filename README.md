@@ -1,39 +1,30 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# **General Knowledge quiz game**
 
-Welcome,
+Quiz Game is a general knowledge quiz game that enables you to test and expand your General knowledge capacity. Quizes are a fun and entertaining way to learn while challenging yourself. Getting a question wrong and the curiousity to find the answer makes it more likely that a person will not forget the answer to a question will remember for a long time. Quiz Game let's you take on a the challenge to test your general knowledge capacity and teach you while you're having fun.
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## **Planning Stage**
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+### **Target Audience:**
 
-## Codeanywhere Reminders
+  * Anyone, young or grown who would like to test or expand on their general knowledge capacity. 
+  * Anyone who enjoys challenges and quiz games.
+  
+### **User Stories:**
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+As a user, I would like to: 
+  * See different levels of difficulty to make the game less boring and more challenging and useful while it is also fun. 
+  * Have my score recorded and get a feedback at the end of each game. 
+  * See the correct answer after i get a question wrong. 
+  * Questions to be understandable and clear
+  * See that a single game does not have too much questions. The number of questions should be short so not to make it boring and tiring.
 
-`python3 -m http.server`
+### **Site Aims:**
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+1. To present a general knowledge quiz game that tests the user's general knowlegge capacity.
+2. To provide different levels of difficulties to make the quiz game fun and challenging. 
+3. The site should be easy to navigate and instructions should be very clear.
+4. To randomise questions so the questions are not the same anytime the user plays the same difficulty.
+4. To add a score counter on each game and display score feedback and feedback on how they did at the end of the game. 
+5. To add a countdown to answer each question so the user does not have time to google the answer if they don't know.
+6. To become an entertaining and useful game that increases the user's general knowlegde capacity.
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
-
-`http_server`
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
----
-
-Happy coding!
