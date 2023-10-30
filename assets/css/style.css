@@ -39,11 +39,14 @@ body {
 }
 
 .welcome {
-    width: 80%;
+    width: 60%;
+    height: 400px;
     margin: auto;
     color: black;
     margin-top: 100px;
     position: relative;
+    border: 2px solid black;
+    padding: 50px 0;
 }
 
 h1 {
