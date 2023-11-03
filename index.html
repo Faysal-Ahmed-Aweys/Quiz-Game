@@ -13,7 +13,7 @@
     <main id="quiz-game-container">
 
       <!-- Header -->
-      <header id="header">
+      <header id="header" class="hidden">
         <h1 id="heading" class="margin-bottom uppercase">
           General Knowledge Quiz Game
         </h1>
@@ -50,7 +50,7 @@
       </section>
 
       <!-- difficulty selection section -->
-      <section id="difficulty-section" class="difficulty-selector">
+      <section id="difficulty-section" class="difficulty-selector hidden">
         <h2 class="margin-top padding uppercase">Hi, Choose Difficulty</h2>
         <button id="normal" class="uppercase larger green btn-difficulty">
           Normal</button
@@ -61,13 +61,13 @@
       </section>
 
       <!-- normal difficulty level container -->
-    <div id="normal-game-container" class="game-container hidden">
-        <p id="normal-scoreholder" class="scoreText text-center uppercase">score:<span id="normal-score"> 0 / <span
-                    id="normal-total-score">0</span></p>
+    <section id="normal-game-container" class="game-container hidden">
+        <h1 id="normal-scoreholder" class="scoreText text-center uppercase score-heading">score:<span id="normal-score"> 0 / <span
+            id="normal-total-score">0</span></h1>
             <h2 id="normal-question">Can you answer this question?</h2><span id="timer"></span>
             <!-- creating a div for answer buttons was adapted from https://youtu.be/PBcqGxrr9g8?si=wFop-R1mBQ_KiAhY -->
         <div id="normal-answer-btns" class=""></div>
-    </div>
+        </section>
 
     <!-- hard difficulty level container -->
     <section id="hard-game-container" class="game-container hidden">
@@ -79,17 +79,17 @@
         </section>
 
     <!-- Normal summary section -->
-    <section id="normal-summary" class="summary hidden">
-        <h3 id="normal-scoredText" class="margin-bottom text-center">You scored<span id="normal-summary-score">0</span> / <span
-                id="total-normal-summary-score">0</span></h3>
+    <section id="normal-summary" class="summary">
+        <h1 id="normal-scoredText" class="margin-top text-center">You scored<span id="normal-summary-score"> 0</span> / <span
+                id="total-normal-summary-score">0</span></h1>
         <button id="play-again-normal" class="uppercase larger green btn-summary-page">Play Again</button><br><br>
         <button id="next-level" class="disabled uppercase larger red btn-summary-page">Next Level</button><br><br>
-        <button id="main-menu" class="text-center uppercase btn x-large">Home</button>
+        <button id="main-menu-button" class="text-center uppercase btn x-large btn-summary-page">Home</button>
         </section>
 
     <!-- hard summary section -->
     <section id="hard-summary" class="summary hidden">
-        <h3 id="hard-scoredText" class="margin-bottom text-center">You scored<span id="hard-summary-score">0</span> / <span
+        <h3 id="hard-scoredText" class="margin-bottom text-center"> You scored <span id="hard-summary-score"> 0 </span> / <span
                 id="total-hard-summary-score">0</span></h3>
         <button id="play-again-hard" class="uppercase larger green btn-summary-page">Play Again</button><br><br>
         <button id="home" class="text-center uppercase btn x-large">Home</button>
