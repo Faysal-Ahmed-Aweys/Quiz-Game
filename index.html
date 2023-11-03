@@ -8,18 +8,30 @@
     <title>Quiz Game</title>
   </head>
   <body>
-    <main class="quiz-game-container">
-      <section id="welcome-section">
-        <h1 class="margin-bottom margin-top uppercase">
+    <!-- main element contains all sections, asides and divs of the game -->
+    <main id="quiz-game-container">
+      <!-- Header -->
+      <header id="header">
+        <h1 id="title" class="margin-bottom uppercase">
           General Knowledge Quiz Game
         </h1>
-        <button id="start-game" class="x-large btn uppercase">
-          Start Game
-        </button>
-      </section>
+      </header>
 
-      <section id="form-section" class="hidden">
-        <h2>To record your score, Enter a username.</h2>
+      <!-- home page container -->
+      <div id="home-page">
+        <p id="total-score" class="margin-top">totalscore:</p>
+        <p id="fancy-name">Beginner</p>
+        <p id="next-fancy-name"></p>
+        <nav>
+          <button id="start-game" class="x-large btn uppercase">
+            Start Game
+          </button>
+        </nav>
+      </div>
+
+      <!-- Username form section -->
+      <section id="form-section" class="">
+        <h2>Create a username.</h2>
         <form action="" id="username-form">
           <label for="username" class="uppercase">Enter a username: </label
           ><br />
@@ -33,13 +45,17 @@
           /><br /><br />
           <button id="submit" class="x-large btn">Submit</button>
         </form>
-
       </section>
 
+      <!-- difficulty selection section -->
       <section id="difficulty-section" class="difficulty-selector hidden">
-        <h2 class="margin-bottom uppercase">Hi, Choose Difficulty</h2>
-        <button id ="normal" class="uppercase larger green btn-difficulty">Normal</button><br><br>
-		<button id="hard" class="uppercase larger red btn-difficulty">Hard</button><br><br>
+        <h3 class="margin-bottom uppercase">Hi, Choose Difficulty</h3>
+        <button id="normal" class="uppercase larger green btn-difficulty">
+          Normal</button
+        ><br /><br />
+        <button id="hard" class="uppercase larger red btn-difficulty">
+          Hard</button
+        ><br /><br />
       </section>
     </main>
   </body>
