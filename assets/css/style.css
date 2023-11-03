@@ -18,7 +18,8 @@ body {
     padding: 5px;
 }
 
-#home-page {
+#home-page,
+#form-section {
     width: 90%;
     text-align: center;
     height: 200px;
@@ -28,7 +29,8 @@ body {
     position: relative;
 }
 
-#start-game {
+#start-game,
+#submit-button {
     width: 80%;
     margin: auto;
     background: black;
@@ -56,6 +58,10 @@ body {
 
 .margin-top {
     margin-top: 90px;
+}
+
+#username {
+    margin-top: 10px;
 }
 
 .btn {

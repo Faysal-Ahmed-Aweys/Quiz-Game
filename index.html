@@ -20,7 +20,7 @@
       </header>
 
       <!-- home page container -->
-      <div id="home-page">
+      <div id="home-page" class="hidden">
         <h2 id="total-score" class="margin-top padding">totalscore:</h2>
         <h3 id="fancy-name" class="padding">Status: Beginner</h3>
         <h4 id="next-fancy-name" class="margin-bottom padding">Become amateur in 500 points</h4>
@@ -33,11 +33,11 @@
 
       <!-- Username form section -->
       <section id="form-section" class="hidden">
-        <p>Create a username.</p>
+        <h2 class="margin-top padding">Who is playing?</h2>
         <form action="" id="username-form">
-          <label for="username" class="uppercase">Enter a username: </label
+          <label for="username" class="uppercase label">Enter a username: </label
           ><br />
-          <input
+          <input class="padding"
             type="text"
             id="username"
             name="username"
@@ -45,7 +45,7 @@
             placeholder="maximum 15 letters!"
             required
           /><br /><br />
-          <button id="submit" class="x-large btn">Submit</button>
+          <button id="submit-button" class="x-large btn uppercase margin-top">Submit</button>
         </form>
       </section>
 
