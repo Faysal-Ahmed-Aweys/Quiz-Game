@@ -11,7 +11,39 @@ body {
     text-align: center;
     width: 100%;
     min-height: 100vh;
-    background: gray;
+    background-color: teal;
+}
+
+.padding {
+    padding: 5px;
+}
+
+#home-page {
+    width: 90%;
+    text-align: center;
+    height: 200px;
+    margin: auto;
+    margin-bottom: 20px;
+    color: whitesmoke;
+    position: relative;
+}
+
+#start-game {
+    width: 80%;
+    margin: auto;
+    background: black;
+    color: white;
+    font-size: 30px;
+    height: 100px;
+    cursor: pointer;
+}
+
+#heading {
+    font-size: 40px;
+    width: 100%;
+    margin: auto;
+    color: black;
+    padding: 10px;
 }
 
 .hidden {
@@ -23,7 +55,7 @@ body {
 }
 
 .margin-top {
-    margin-top: 20px;
+    margin-top: 90px;
 }
 
 .btn {
