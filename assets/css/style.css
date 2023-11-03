@@ -19,7 +19,8 @@ body {
 }
 
 #home-page,
-#form-section {
+#form-section,
+#difficulty-section {
     width: 90%;
     text-align: center;
     height: 200px;
@@ -64,6 +65,10 @@ body {
     margin-top: 10px;
 }
 
+.larger {
+    font-size: large;
+}
+
 .btn {
     border: none;
     padding: 4px;
@@ -71,6 +76,24 @@ body {
     text-align: center;
     color: white;
     background: black;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.btn-difficulty {
+    border: none;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    width: 50%;
+    margin-top: 25px;
 }
 
 .btn:hover {
