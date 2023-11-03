@@ -96,6 +96,11 @@ body {
     margin-top: 25px;
 }
 
+.btn-difficulty:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
 .btn:hover {
     transform: scale(1.1);
 }
