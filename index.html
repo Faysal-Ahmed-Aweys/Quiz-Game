@@ -31,7 +31,7 @@
 
       <!-- Username form section -->
       <section id="form-section" class="">
-        <h2>Create a username.</h2>
+        <p>Create a username.</p>
         <form action="" id="username-form">
           <label for="username" class="uppercase">Enter a username: </label
           ><br />
@@ -49,7 +49,7 @@
 
       <!-- difficulty selection section -->
       <section id="difficulty-section" class="difficulty-selector hidden">
-        <h3 class="margin-bottom uppercase">Hi, Choose Difficulty</h3>
+        <p class="margin-bottom uppercase">Hi, Choose Difficulty</p>
         <button id="normal" class="uppercase larger green btn-difficulty">
           Normal</button
         ><br /><br />
@@ -57,6 +57,14 @@
           Hard</button
         ><br /><br />
       </section>
+
+      <!-- normal difficulty game container -->
+    <div id="normal-game-container" class="game-container">
+        <p id="scoreholder" class="scoreText text-center uppercase">score:<span id="score"> 0 / <span
+                    id="total-score">0</span></p>
+            <h2 id="question">What is the answer to this question?</h2><span id="timer"></span>
+        <div id="answer-btns" class=""></div>
+    </div>
     </main>
   </body>
 </html>
