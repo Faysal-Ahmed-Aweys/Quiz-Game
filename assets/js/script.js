@@ -1,5 +1,9 @@
 const formSection = document.getElementById('form-section');
 const difficultyPage = document.getElementById('difficulty-section');
+const normalButton = document.getElementById('normal-button');
+const hardButton = document.getElementById('hard-button');
+const normalGameContainer = document.getElementById('normal-game-container');
+const hardGameContainer = document.getElementById('hard-game-container');
 
 document.addEventListener("DOMContentLoaded", function () {
     let startBtn = document.getElementById('start-button');
@@ -19,4 +23,17 @@ function displayUsernameForm() {
 function displayDifficultyPage() {
     formSection.classList.add('hidden');
     difficultyPage.classList.remove('hidden');
+    handleDifficultySelection();
+}
+
+function handleDifficultySelection() {
+    normalButton.addEventListener('click', function () {
+        normalGameContainer.classList.remove('hidden');
+        difficultyPage.classList.add('hidden');
+    });
+
+    hardButton.addEventListener('click', function () {
+        hardGameContainer.classList.remove('hidden');
+        difficultyPage.classList.add('hidden');
+    });
 }
