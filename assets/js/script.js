@@ -30,10 +30,14 @@ function handleDifficultySelection() {
     normalButton.addEventListener('click', function () {
         normalGameContainer.classList.remove('hidden');
         difficultyPage.classList.add('hidden');
+        startNormalLevel()
     });
 
     hardButton.addEventListener('click', function () {
         hardGameContainer.classList.remove('hidden');
         difficultyPage.classList.add('hidden');
     });
+}
+
+startNormalLevel() {
 }
