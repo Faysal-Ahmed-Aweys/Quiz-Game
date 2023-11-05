@@ -13,19 +13,19 @@
     <main id="quiz-game-container">
 
       <!-- Header -->
-      <header id="header" class="hidden">
+      <header id="header" class="">
         <h1 id="heading" class="margin-bottom uppercase">
           General Knowledge Quiz Game
         </h1>
       </header>
 
       <!-- home page container -->
-      <div id="home-page" class="hidden">
+      <div id="home-page" class="">
         <h2 id="total-score" class="margin-top padding">totalscore:</h2>
         <h3 id="fancy-name" class="padding">Status: Beginner</h3>
         <h4 id="next-fancy-name" class="margin-bottom padding">Become amateur in 500 points</h4>
         <nav>
-          <button id="start-game" class="x-large btn uppercase margin-top">
+          <button id="start-button" class="x-large btn uppercase margin-top">
             Start Game
           </button>
         </nav>
@@ -79,7 +79,7 @@
         </section>
 
     <!-- Normal summary section -->
-    <section id="normal-summary" class="summary">
+    <section id="normal-summary" class="summary hidden">
         <h1 id="normal-scoredText" class="margin-top text-center">You scored<span id="normal-summary-score"> 0</span> / <span
                 id="total-normal-summary-score">0</span></h1>
         <button id="play-again-normal" class="uppercase larger green btn-summary-page">Play Again</button><br><br>
@@ -95,5 +95,7 @@
         <button id="home" class="text-center uppercase btn x-large">Home</button>
         </section>
     </main>
+
+    <script src="assets/js/script.js"></script>
   </body>
 </html>
