@@ -125,10 +125,10 @@ function startNormalLevel() {
         {
             question: "Where do polar bears live?",
             answers: [
-                { text: 'The arctic', correct: false },
+                { text: 'The arctic', correct: true },
                 { text: 'The desert', correct: false },
                 { text: 'The forest', correct: false },
-                { text: 'The ocean', correct: true }
+                { text: 'The ocean', correct: false }
             ]
         },
         {
@@ -143,7 +143,7 @@ function startNormalLevel() {
     ];
 
     availableQuestions = [...questions];
-    normalTotalScore.innerHTML = 500;
+    normalTotalScore.innerHTML = 100;
     questionCounter = 0;
     score = 0;
     getNewQuestion();
@@ -180,20 +180,23 @@ function selectAnswer(e) {
     console.log(selectedBtn);
     const isCorrect = selectedBtn.dataset.correct === "true";
     if (isCorrect) {
-        selectedBtn.classList.add('correct');
+        selectedBtn.style.color = "green";
         incrementScore(normalScorePoints);
         console.log(isCorrect);
     } else {
-        selectedBtn.classList.add('incorrect');
+        selectedBtn.style.color = "red";
         console.log(isCorrect);
     }
     Array.from(normalAnswerBtns.children).forEach(button => {
         button.disabled = true;
-        button.classList.add('hidden');
     });
-    normalQuestion.classList.add('hidden');
-    getNewQuestion();
-
+    setTimeout(() => {
+        Array.from(normalAnswerBtns.children).forEach(button => {
+            button.classList.add('hidden');
+        });
+        normalQuestion.classList.add('hidden');
+        getNewQuestion();
+    }, 1000);
 }
 
 function incrementScore(num) {
