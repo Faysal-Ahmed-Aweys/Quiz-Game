@@ -356,7 +356,7 @@ function startHardLevel() {
         {
             question: "How many bones are in an elephant's trunk?",
             answers: [
-                { text: 'Zero', correct: false },
+                { text: 'three', correct: false },
                 { text: 'A hundred', correct: false },
                 { text: 'Zero', correct: true },
                 { text: 'Twenty', correct: false }
@@ -403,14 +403,17 @@ function getNewNormalQuestion() {
 
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score);
+        let normalScoreSummary = document.getElementById('normal-scoredText');
 
         let NormalGainedScore = localStorage.getItem('mostRecentScore');
-
+        if (NormalGainedScore >= 100) {
+            normalScoreSummary.innerHTML = `You Scored ${NormalGainedScore} / 100 <br> Well done!`;
+        } else {
+            normalScoreSummary.innerHTML = `You Scored ${NormalGainedScore} / 100 <br> You can do better!`;
+        }
         let normalScore = document.getElementById('normal-summary-score');
         let normalTotalScore = document.getElementById('total-normal-summary-score');
 
-        normalScore.innerHTML = NormalGainedScore;
-        normalTotalScore.innerHTML = 100;
         normalGameContainer.classList.add('hidden');
         normalGameSummary.classList.remove('hidden');
         handleLevelSelectionNormal();
@@ -447,14 +450,19 @@ function getNewHardQuestion() {
 
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score);
+        let hardScoreSummary = document.getElementById('hard-scoredText');
 
         let hardGainedScore = localStorage.getItem('mostRecentScore');
         let hardScore = document.getElementById('hard-summary-score');
         let hardTotalScore = document.getElementById('total-normal-summary-score');
 
-        hardScore.innerHTML = hardGainedScore;
+        if (hardGainedScore >= 400) {
+            hardScoreSummary.innerHTML = `You Scored ${hardGainedScore} / 400 <br> Well done!`;
+        } else {
+            hardScoreSummary.innerHTML = `You Scored ${hardGainedScore} / 400 <br> You can do better!`;
+        }
+
         hardQuestion.classList.add('hidden');
-        hardTotalScore.innerHTML = 400;
         hardGameContainer.classList.add('hidden');
         hardGameSummary.classList.remove('hidden');
         handleLevelSelectionHard();
