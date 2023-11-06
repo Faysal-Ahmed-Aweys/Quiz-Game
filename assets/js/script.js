@@ -34,7 +34,7 @@ function handleDifficultySelection() {
     normalButton.addEventListener('click', function () {
         normalGameContainer.classList.remove('hidden');
         difficultyPage.classList.add('hidden');
-        startNormalLevel();
+        getNewQuestion();
     });
 
     hardButton.addEventListener('click', function () {
@@ -141,6 +141,7 @@ function getNewQuestion() {
     let availableQuestions = [...questions];
     normalTotalScore.innerHTML = 500;
     let questionCounter = 0;
+
     questionCounter++;
 
     const questionsIndex = Math.floor(Math.random() * availableQuestions.length);
@@ -149,13 +150,13 @@ function getNewQuestion() {
 
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement('button');
+        console.log(button);
         button.innerHTML = answer.text;
         button.classList.add('btn');
         normalAnswerBtns.appendChild(button);
         if (answer.correct) {
             button.dataset.correct = answer.correct;
         }
-        button.addEventListener('click', selectAnswer);
 
     });
 
