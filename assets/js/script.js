@@ -164,6 +164,8 @@ function startNormalLevel() {
     score = 0;
     getNewNormalQuestion();
 
+
+
 };
 
 function startHardLevel() {
@@ -310,8 +312,7 @@ function getNewNormalQuestion() {
 }
 
 function getNewHardQuestion() {
-    let MAX_QUESTIONS = 10;
-    console.log(MAX_QUESTIONS);
+    let MAX_QUESTIONS = 9;
 
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score);
