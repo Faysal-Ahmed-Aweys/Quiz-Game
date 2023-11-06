@@ -95,7 +95,8 @@ body {
 
 #start-button,
 #submit-button,
-#home-button-normal {
+#home-button-normal,
+#home-button-hard {
     width: 80%;
     margin: auto;
     background: black;
