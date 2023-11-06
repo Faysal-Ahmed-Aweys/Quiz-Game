@@ -321,6 +321,7 @@ function getNewHardQuestion() {
         let hardTotalScore = document.getElementById('total-normal-summary-score');
 
         hardScore.innerHTML = hardGainedScore;
+        hardQuestion.classList.add('hidden');
         hardTotalScore.innerHTML = 400;
         hardGameContainer.classList.add('hidden');
         hardGameSummary.classList.remove('hidden');
@@ -418,7 +419,7 @@ function handleLevelSelection() {
         let hardGameContainer = document.getElementById('hard-game-container');
         hardGameContainer.classList.remove('hidden');
         normalGameSummary.classList.add('hidden');
-
+        startHardLevel();
     });
 
     homeButtonNormal.addEventListener('click', () => {
