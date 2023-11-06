@@ -6,6 +6,8 @@ const normalGameContainer = document.getElementById('normal-game-container');
 const hardGameContainer = document.getElementById('hard-game-container');
 const normalTotalScore = document.getElementById('normal-total-score');
 const normalScoreHolder = document.getElementById('normal-scoreholder');
+const normalQuestion = document.getElementById('normal-question');
+const normalAnswerBtns = document.getElementById('normal-answer-btns');
 
 document.addEventListener("DOMContentLoaded", function () {
     let startBtn = document.getElementById('start-button');
@@ -41,7 +43,7 @@ function handleDifficultySelection() {
     });
 }
 
-function startNormalLevel() {
+function getNewQuestion() {
     const questions = [
         {
             question: 'What is the orange part of an egg called?',
@@ -134,12 +136,29 @@ function startNormalLevel() {
             ]
         }
     ];
-    console.log(questions);
 
-    let questionCounter = 0;
     let score = 0;
     let availableQuestions = [...questions];
     normalTotalScore.innerHTML = 500;
-    getNewQuestion();
+    let questionCounter = 0;
+    questionCounter++;
+
+    const questionsIndex = Math.floor(Math.random() * availableQuestions.length);
+    let currentQuestion = availableQuestions[questionsIndex];
+    normalQuestion.innerHTML = questionCounter + ". " + currentQuestion.question;
+
+    currentQuestion.answers.forEach(answer => {
+        const button = document.createElement('button');
+        button.innerHTML = answer.text;
+        button.classList.add('btn');
+        normalAnswerBtns.appendChild(button);
+        if (answer.correct) {
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener('click', selectAnswer);
+
+    });
+
+    availableQuestions.splice(questionsIndex, 1);
 }
 
