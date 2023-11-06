@@ -9,6 +9,9 @@ const normalScoreHolder = document.getElementById('normal-scoreholder');
 const normalQuestion = document.getElementById('normal-question');
 const normalAnswerBtns = document.getElementById('normal-answer-btns');
 const heading = document.getElementById('heading');
+const normalScoreText = document.getElementById('normal-score-text');
+
+const normalScorePoints = 20;
 
 document.addEventListener("DOMContentLoaded", function () {
     let startBtn = document.getElementById('start-button');
@@ -36,7 +39,7 @@ function handleDifficultySelection() {
         normalGameContainer.classList.remove('hidden');
         difficultyPage.classList.add('hidden');
         heading.classList.add('hidden');
-        getNewQuestion();
+        startNormalLevel();
     });
 
     hardButton.addEventListener('click', function () {
@@ -45,7 +48,7 @@ function handleDifficultySelection() {
     });
 }
 
-function getNewQuestion() {
+function startNormalLevel() {
     const questions = [
         {
             question: 'What is the orange part of an egg called?',
@@ -139,12 +142,19 @@ function getNewQuestion() {
         }
     ];
 
-    let score = 0;
-    let availableQuestions = [...questions];
+    availableQuestions = [...questions];
     normalTotalScore.innerHTML = 500;
-    let questionCounter = 0;
+    questionCounter = 0;
+    score = 0;
+    getNewQuestion();
+
+};
+
+function getNewQuestion() {
 
     questionCounter++;
+    console.log(questionCounter);
+    normalQuestion.classList.remove('hidden');
 
     const questionsIndex = Math.floor(Math.random() * availableQuestions.length);
     let currentQuestion = availableQuestions[questionsIndex];
@@ -159,9 +169,34 @@ function getNewQuestion() {
         if (answer.correct) {
             button.dataset.correct = answer.correct;
         }
-
+        button.addEventListener('click', selectAnswer);
     });
 
     availableQuestions.splice(questionsIndex, 1);
 }
 
+function selectAnswer(e) {
+    const selectedBtn = e.target;
+    console.log(selectedBtn);
+    const isCorrect = selectedBtn.dataset.correct === "true";
+    if (isCorrect) {
+        selectedBtn.classList.add('correct');
+        incrementScore(normalScorePoints);
+        console.log(isCorrect);
+    } else {
+        selectedBtn.classList.add('incorrect');
+        console.log(isCorrect);
+    }
+    Array.from(normalAnswerBtns.children).forEach(button => {
+        button.disabled = true;
+        button.classList.add('hidden');
+    });
+    normalQuestion.classList.add('hidden');
+    getNewQuestion();
+
+}
+
+function incrementScore(num) {
+    score += num;
+    normalScoreText.innerText = ` ${score} / 500`;
+}
