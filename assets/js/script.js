@@ -5,6 +5,9 @@ const difficultyPage = document.getElementById('difficulty-section');
 const normalButton = document.getElementById('normal-button');
 const hardButton = document.getElementById('hard-button');
 
+const readyText = document.getElementById('ready');
+const countDownText = document.getElementById('countdown');
+
 const normalGameContainer = document.getElementById('normal-game-container');
 const hardGameContainer = document.getElementById('hard-game-container');
 
@@ -49,19 +52,52 @@ function displayDifficultyPage() {
 
 function handleDifficultySelection() {
     normalButton.addEventListener('click', function () {
-        normalGameContainer.classList.remove('hidden');
         difficultyPage.classList.add('hidden');
         heading.classList.add('hidden');
-        startNormalLevel();
+        readyText.classList.remove('hidden');
+        let count = 4;
+        let readyCountdownNormal = setInterval(function () {
+            count--;
+            countDownText.innerHTML = count;
+            if (count == 0) {
+                countDownText.innerHTML = "";
+            };
+
+        }, 1000);
+        setTimeout(() => {
+            normalGameContainer.classList.remove('hidden');
+            startNormalLevel();
+            clearInterval(readyCountdownNormal);
+            countDownText.classList.add('hidden');
+            readyText.classList.add('hidden');
+        }, 4000);
+
     });
 
     hardButton.addEventListener('click', function () {
-        hardGameContainer.classList.remove('hidden');
         difficultyPage.classList.add('hidden');
         heading.classList.add('hidden');
-        startHardLevel();
+        readyText.classList.remove('hidden');
+        let count = 4;
+        let readyCountdownHard = setInterval(function () {
+            count--;
+            countDownText.innerHTML = count;
+            if (count == 0) {
+                countDownText.innerHTML = "";
+            };
+
+        }, 1000);
+        setTimeout(() => {
+            hardGameContainer.classList.remove('hidden');
+            startHardLevel();
+            clearInterval(readyCountdownHard);
+            countDownText.classList.add('hidden');
+            readyText.classList.add('hidden');
+        }, 4000);
     });
 }
+
+
 
 function startNormalLevel() {
     const normalQuestions = [
@@ -375,7 +411,6 @@ function getNewNormalQuestion() {
         normalGameContainer.classList.add('hidden');
         normalGameSummary.classList.remove('hidden');
         handleLevelSelectionNormal();
-
     }
 
     questionCounter++;
@@ -501,19 +536,52 @@ function handleLevelSelectionNormal() {
             button.classList.add('hidden');
         });
         normalGameSummary.classList.add('hidden');
-        normalGameContainer.classList.remove('hidden');
+        readyText.classList.remove('hidden');
+        let count = 4;
+        let readyCountdownNormal = setInterval(function () {
+            count--;
+            countDownText.innerHTML = count;
+            if (count == 0) {
+                countDownText.innerHTML = "";
+            };
 
-        startNormalLevel();
+        }, 1000);
+        countDownText.classList.remove('hidden');
+        setTimeout(() => {
+            normalGameContainer.classList.remove('hidden');
+            startNormalLevel();
+            clearInterval(readyCountdownNormal);
+            countDownText.classList.add('hidden');
+            readyText.classList.add('hidden');
+        }, 4000);
     });
 
     nextLevel.addEventListener('click', () => {
         let hardGameContainer = document.getElementById('hard-game-container');
-        hardGameContainer.classList.remove('hidden');
         normalGameSummary.classList.add('hidden');
         Array.from(hardAnswerBtns.children).forEach(button => {
             button.classList.add('hidden');
         });
-        startHardLevel();
+        readyText.classList.remove('hidden');
+        hardQuestion.classList.add('hidden');
+        let count = 4;
+        let readyCountdownNormal = setInterval(function () {
+            count--;
+            countDownText.innerHTML = count;
+            if (count == 0) {
+                countDownText.innerHTML = "";
+            };
+
+        }, 1000);
+        countDownText.classList.remove('hidden');
+        setTimeout(() => {
+            hardGameContainer.classList.remove('hidden');
+            startHardLevel();
+            clearInterval(readyCountdownNormal);
+            countDownText.classList.add('hidden');
+            readyText.classList.add('hidden');
+        }, 4000);
+
     });
 
     homeButtonNormal.addEventListener('click', () => {
@@ -535,12 +603,29 @@ function handleLevelSelectionHard() {
 
     playAgainHard.addEventListener('click', () => {
         let hardGameContainer = document.getElementById('hard-game-container');
-        hardGameContainer.classList.remove('hidden');
         hardGameSummary.classList.add('hidden');
         Array.from(hardAnswerBtns.children).forEach(button => {
             button.classList.add('hidden');
         });
-        startHardLevel();
+        readyText.classList.remove('hidden');
+        hardQuestion.classList.add('hidden');
+        let count = 4;
+        let readyCountdownNormal = setInterval(function () {
+            count--;
+            countDownText.innerHTML = count;
+            if (count == 0) {
+                countDownText.innerHTML = "";
+            };
+
+        }, 1000);
+        countDownText.classList.remove('hidden');
+        setTimeout(() => {
+            hardGameContainer.classList.remove('hidden');
+            startHardLevel();
+            clearInterval(readyCountdownNormal);
+            countDownText.classList.add('hidden');
+            readyText.classList.add('hidden');
+        }, 4000);
     });
 
     homeButtonHard.addEventListener('click', () => {
