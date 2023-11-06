@@ -7,6 +7,7 @@ const hardButton = document.getElementById('hard-button');
 
 const readyText = document.getElementById('ready');
 const countDownText = document.getElementById('countdown');
+const timerText = document.getElementById('timer');
 
 const normalGameContainer = document.getElementById('normal-game-container');
 const hardGameContainer = document.getElementById('hard-game-container');
@@ -55,11 +56,12 @@ function handleDifficultySelection() {
         difficultyPage.classList.add('hidden');
         heading.classList.add('hidden');
         readyText.classList.remove('hidden');
-        let count = 4;
+        let count = 3;
         let readyCountdownNormal = setInterval(function () {
-            count--;
             countDownText.innerHTML = count;
-            if (count == 0) {
+            console.log(count);
+            count--;
+            if (count < 0) {
                 countDownText.innerHTML = "";
             };
 
@@ -78,11 +80,11 @@ function handleDifficultySelection() {
         difficultyPage.classList.add('hidden');
         heading.classList.add('hidden');
         readyText.classList.remove('hidden');
-        let count = 4;
+        let count = 3;
         let readyCountdownHard = setInterval(function () {
-            count--;
             countDownText.innerHTML = count;
-            if (count == 0) {
+            count--;
+            if (count < 0) {
                 countDownText.innerHTML = "";
             };
 
@@ -478,7 +480,8 @@ function getNewHardQuestion() {
     availableQuestions.splice(questionsIndex, 1);
 }
 
-function selectAnswerNormal(e) {
+selectAnswerNormal = (e) => {
+
     const selectedBtn = e.target;
     console.log(selectedBtn);
     const isCorrect = selectedBtn.dataset.correct === "true";
@@ -500,7 +503,7 @@ function selectAnswerNormal(e) {
         normalQuestion.classList.add('hidden');
         getNewNormalQuestion();
     }, 1000);
-}
+};
 
 function selectAnswerHard(e) {
     const selectedBtn = e.target;
@@ -537,11 +540,11 @@ function handleLevelSelectionNormal() {
         });
         normalGameSummary.classList.add('hidden');
         readyText.classList.remove('hidden');
-        let count = 4;
+        let count = 3;
         let readyCountdownNormal = setInterval(function () {
-            count--;
             countDownText.innerHTML = count;
-            if (count == 0) {
+            count--;
+            if (count < 0) {
                 countDownText.innerHTML = "";
             };
 
@@ -557,23 +560,22 @@ function handleLevelSelectionNormal() {
     });
 
     nextLevel.addEventListener('click', () => {
-        let hardGameContainer = document.getElementById('hard-game-container');
         normalGameSummary.classList.add('hidden');
-        Array.from(hardAnswerBtns.children).forEach(button => {
-            button.classList.add('hidden');
-        });
         readyText.classList.remove('hidden');
         hardQuestion.classList.add('hidden');
-        let count = 4;
+        let count = 3;
         let readyCountdownNormal = setInterval(function () {
-            count--;
             countDownText.innerHTML = count;
-            if (count == 0) {
+            count--;
+            if (count < 0) {
                 countDownText.innerHTML = "";
             };
 
         }, 1000);
         countDownText.classList.remove('hidden');
+        Array.from(hardAnswerBtns.children).forEach(button => {
+            button.classList.add('hidden');
+        });
         setTimeout(() => {
             hardGameContainer.classList.remove('hidden');
             startHardLevel();
@@ -609,11 +611,11 @@ function handleLevelSelectionHard() {
         });
         readyText.classList.remove('hidden');
         hardQuestion.classList.add('hidden');
-        let count = 4;
+        let count = 3;
         let readyCountdownNormal = setInterval(function () {
-            count--;
             countDownText.innerHTML = count;
-            if (count == 0) {
+            count--;
+            if (count < 0) {
                 countDownText.innerHTML = "";
             };
 
