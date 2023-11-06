@@ -284,7 +284,7 @@ function getNewNormalQuestion() {
         normalTotalScore.innerHTML = 100;
         normalGameContainer.classList.add('hidden');
         normalGameSummary.classList.remove('hidden');
-        handleLevelSelection();
+        handleLevelSelectionNormal();
 
     }
 
@@ -326,7 +326,7 @@ function getNewHardQuestion() {
         hardTotalScore.innerHTML = 400;
         hardGameContainer.classList.add('hidden');
         hardGameSummary.classList.remove('hidden');
-        handleLevelSelection();
+        handleLevelSelectionHard();
 
     }
 
@@ -401,7 +401,7 @@ function selectAnswerHard(e) {
     }, 1000);
 }
 
-function handleLevelSelection() {
+function handleLevelSelectionNormal() {
     let playAgainNormal = document.getElementById('play-again-normal');
     let nextLevel = document.getElementById('next-level');
     let homeButtonNormal = document.getElementById('home-button-normal');
@@ -427,10 +427,31 @@ function handleLevelSelection() {
     });
 
     homeButtonNormal.addEventListener('click', () => {
-        let hardGameContainer = document.getElementById('hard-game-container');
         heading.classList.remove('hidden');
         homePage.classList.remove('hidden');
         normalGameSummary.classList.add('hidden');
+    });
+}
+
+function handleLevelSelectionHard() {
+    let playAgainHard = document.getElementById('play-again-hard');
+    let homeButtonHard = document.getElementById('home-button-hard');
+
+    playAgainHard.addEventListener('click', () => {
+        let hardGameContainer = document.getElementById('hard-game-container');
+        hardGameContainer.classList.remove('hidden');
+        hardGameSummary.classList.add('hidden');
+        Array.from(hardAnswerBtns.children).forEach(button => {
+            button.classList.add('hidden');
+        });
+        startHardLevel();
+    });
+
+    homeButtonHard.addEventListener('click', () => {
+        let hardGameContainer = document.getElementById('hard-game-container');
+        heading.classList.remove('hidden');
+        homePage.classList.remove('hidden');
+        hardGameSummary.classList.add('hidden');
     });
 }
 
