@@ -8,6 +8,7 @@ const normalTotalScore = document.getElementById('normal-total-score');
 const normalScoreHolder = document.getElementById('normal-scoreholder');
 const normalQuestion = document.getElementById('normal-question');
 const normalAnswerBtns = document.getElementById('normal-answer-btns');
+const heading = document.getElementById('heading');
 
 document.addEventListener("DOMContentLoaded", function () {
     let startBtn = document.getElementById('start-button');
@@ -34,6 +35,7 @@ function handleDifficultySelection() {
     normalButton.addEventListener('click', function () {
         normalGameContainer.classList.remove('hidden');
         difficultyPage.classList.add('hidden');
+        heading.classList.add('hidden');
         getNewQuestion();
     });
 
