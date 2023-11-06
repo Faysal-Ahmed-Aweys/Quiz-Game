@@ -7,7 +7,8 @@ const hardButton = document.getElementById('hard-button');
 
 const readyText = document.getElementById('ready');
 const countDownText = document.getElementById('countdown');
-const timerText = document.getElementById('timer');
+const timerTextNormal = document.getElementById('timer-normal');
+const timerTextHard = document.getElementById('timer-hard');
 
 const normalGameContainer = document.getElementById('normal-game-container');
 const hardGameContainer = document.getElementById('hard-game-container');
@@ -413,33 +414,36 @@ function getNewNormalQuestion() {
         normalGameContainer.classList.add('hidden');
         normalGameSummary.classList.remove('hidden');
         handleLevelSelectionNormal();
+    } else {
+
+
+        intervalTimerNormal();
+        questionCounter++;
+        console.log(questionCounter);
+        normalQuestion.classList.remove('hidden');
+
+        const questionsIndex = Math.floor(Math.random() * availableQuestions.length);
+        let currentQuestion = availableQuestions[questionsIndex];
+        normalQuestion.innerHTML = questionCounter + ". " + currentQuestion.question;
+
+        currentQuestion.answers.forEach(answer => {
+            const button = document.createElement('button');
+            console.log(button);
+            button.innerHTML = answer.text;
+            button.classList.add('btn');
+            normalAnswerBtns.appendChild(button);
+            if (answer.correct) {
+                button.dataset.correct = answer.correct;
+            }
+            button.addEventListener('click', selectAnswerNormal);
+        });
+
+        availableQuestions.splice(questionsIndex, 1);
     }
-
-    questionCounter++;
-    console.log(questionCounter);
-    normalQuestion.classList.remove('hidden');
-
-    const questionsIndex = Math.floor(Math.random() * availableQuestions.length);
-    let currentQuestion = availableQuestions[questionsIndex];
-    normalQuestion.innerHTML = questionCounter + ". " + currentQuestion.question;
-
-    currentQuestion.answers.forEach(answer => {
-        const button = document.createElement('button');
-        console.log(button);
-        button.innerHTML = answer.text;
-        button.classList.add('btn');
-        normalAnswerBtns.appendChild(button);
-        if (answer.correct) {
-            button.dataset.correct = answer.correct;
-        }
-        button.addEventListener('click', selectAnswerNormal);
-    });
-
-    availableQuestions.splice(questionsIndex, 1);
 }
 
 function getNewHardQuestion() {
-    let MAX_QUESTIONS = 9;
+    let MAX_QUESTIONS = 10;
 
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score);
@@ -455,30 +459,74 @@ function getNewHardQuestion() {
         hardGameSummary.classList.remove('hidden');
         handleLevelSelectionHard();
 
+    } else {
+        intervalTimerHard();
+
+        questionCounter++;
+        console.log(questionCounter);
+        hardQuestion.classList.remove('hidden');
+
+        const questionsIndex = Math.floor(Math.random() * availableQuestions.length);
+        let currentQuestion = availableQuestions[questionsIndex];
+        hardQuestion.innerHTML = questionCounter + ". " + currentQuestion.question;
+
+        currentQuestion.answers.forEach(answer => {
+            const button = document.createElement('button');
+            console.log(button);
+            button.innerHTML = answer.text;
+            button.classList.add('btn');
+            hardAnswerBtns.appendChild(button);
+            if (answer.correct) {
+                button.dataset.correct = answer.correct;
+            }
+            button.addEventListener('click', selectAnswerHard);
+        });
+
+        availableQuestions.splice(questionsIndex, 1);
     }
-
-    questionCounter++;
-    console.log(questionCounter);
-    hardQuestion.classList.remove('hidden');
-
-    const questionsIndex = Math.floor(Math.random() * availableQuestions.length);
-    let currentQuestion = availableQuestions[questionsIndex];
-    hardQuestion.innerHTML = questionCounter + ". " + currentQuestion.question;
-
-    currentQuestion.answers.forEach(answer => {
-        const button = document.createElement('button');
-        console.log(button);
-        button.innerHTML = answer.text;
-        button.classList.add('btn');
-        hardAnswerBtns.appendChild(button);
-        if (answer.correct) {
-            button.dataset.correct = answer.correct;
-        }
-        button.addEventListener('click', selectAnswerHard);
-    });
-
-    availableQuestions.splice(questionsIndex, 1);
 }
+
+intervalTimerNormal = () => {
+    let count = 5;
+    let timer = setInterval(function () {
+        timerTextNormal.innerHTML = count;
+        console.log(count);
+        count--;
+        if (count <= 0) {
+            let questionsIndex = Math.floor(Math.random() * availableQuestions.length);
+            let currentQuestion = availableQuestions[questionsIndex];
+            clearInterval(timer);
+            setTimeout(() => {
+                Array.from(normalAnswerBtns.children).forEach(button => {
+                    if (button.hasAttribute('data-correct')) {
+                        button.style.color = "green";
+                    }
+                });
+                timerTextNormal.classList.add('hidden');
+                timerTextNormal.innerHTML = "";
+            }, 1000);
+            setTimeout(() => {
+                Array.from(normalAnswerBtns.children).forEach(button => {
+                    button.classList.add('hidden');
+                });
+                normalQuestion.classList.add('hidden');
+            }, 2000);
+            setTimeout(() => {
+                timerTextNormal.classList.remove('hidden');
+                normalQuestion.classList.remove('hidden');
+                getNewNormalQuestion();
+            }, 3000);
+        } else if (count > 0) {
+            setTimeout(() => {
+                Array.from(normalAnswerBtns.children).forEach(button => {
+
+                    button.addEventListener('click', selectAnswerNormal);
+                });
+            }, 1000);
+        }
+
+    }, 1000);
+};
 
 selectAnswerNormal = (e) => {
 
@@ -505,7 +553,49 @@ selectAnswerNormal = (e) => {
     }, 1000);
 };
 
-function selectAnswerHard(e) {
+intervalTimerHard = () => {
+    let count = 10;
+    let timer = setInterval(function () {
+        timerTextHard.innerHTML = count;
+        console.log(count);
+        count--;
+        if (count <= 0) {
+            let questionsIndex = Math.floor(Math.random() * availableQuestions.length);
+            let currentQuestion = availableQuestions[questionsIndex];
+            clearInterval(timer);
+            setTimeout(() => {
+                Array.from(hardAnswerBtns.children).forEach(button => {
+                    if (button.hasAttribute('data-correct')) {
+                        button.style.color = "green";
+                    }
+                });
+                timerTextHard.classList.add('hidden');
+                timerTextHard.innerHTML = "";
+            }, 1000);
+            setTimeout(() => {
+                Array.from(hardAnswerBtns.children).forEach(button => {
+                    button.classList.add('hidden');
+                });
+                hardQuestion.classList.add('hidden');
+            }, 2000);
+            setTimeout(() => {
+                timerTextHard.classList.remove('hidden');
+                hardQuestion.classList.remove('hidden');
+                getNewHardQuestion();
+            }, 3000);
+        } else if (count > 0) {
+            setTimeout(() => {
+                Array.from(hardAnswerBtns.children).forEach(button => {
+
+                    button.addEventListener('click', selectAnswerHard);
+                });
+            }, 1000);
+        }
+
+    }, 1000);
+};
+
+selectAnswerHard = (e) => {
     const selectedBtn = e.target;
     console.log(selectedBtn);
     const isCorrect = selectedBtn.dataset.correct === "true";
@@ -527,7 +617,7 @@ function selectAnswerHard(e) {
         hardQuestion.classList.add('hidden');
         getNewHardQuestion();
     }, 1000);
-}
+};
 
 function handleLevelSelectionNormal() {
     let playAgainNormal = document.getElementById('play-again-normal');
