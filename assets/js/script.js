@@ -430,6 +430,12 @@ function handleLevelSelectionNormal() {
         heading.classList.remove('hidden');
         homePage.classList.remove('hidden');
         normalGameSummary.classList.add('hidden');
+         Array.from(normalAnswerBtns.children).forEach(button => {
+        button.classList.add('hidden');
+        });
+        Array.from(hardAnswerBtns.children).forEach(button => {
+            button.classList.add('hidden');
+        });
     });
 }
 
@@ -452,6 +458,9 @@ function handleLevelSelectionHard() {
         heading.classList.remove('hidden');
         homePage.classList.remove('hidden');
         hardGameSummary.classList.add('hidden');
+        Array.from(hardAnswerBtns.children).forEach(button => {
+            button.classList.add('hidden');
+        });
     });
 }
 
