@@ -4,6 +4,8 @@ const normalButton = document.getElementById('normal-button');
 const hardButton = document.getElementById('hard-button');
 const normalGameContainer = document.getElementById('normal-game-container');
 const hardGameContainer = document.getElementById('hard-game-container');
+const normalTotalScore = document.getElementById('normal-total-score');
+const normalScoreHolder = document.getElementById('normal-scoreholder');
 
 document.addEventListener("DOMContentLoaded", function () {
     let startBtn = document.getElementById('start-button');
@@ -132,4 +134,12 @@ function startNormalLevel() {
             ]
         }
     ];
+    console.log(questions);
+
+    let questionCounter = 0;
+    let score = 0;
+    let availableQuestions = [...questions];
+    normalTotalScore.innerHTML = 500;
+    getNewQuestion();
 }
+
