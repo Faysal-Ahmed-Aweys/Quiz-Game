@@ -44,7 +44,8 @@ body {
     position: relative;
 }
 
-#normal-answer-btns {
+#normal-answer-btns,
+#hard-answer-btns {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,7 +61,8 @@ body {
     padding: 20px;
 }
 
-#normal-answer-btns button {
+#normal-answer-btns button,
+#hard-answer-btns button {
     margin: 10px 30px;
     display: inline block;
     width: 80%;
@@ -93,7 +95,7 @@ body {
 
 #start-button,
 #submit-button,
-#main-menu-button {
+#home-button-normal {
     width: 80%;
     margin: auto;
     background: black;
