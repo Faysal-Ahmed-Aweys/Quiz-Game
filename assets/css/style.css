@@ -83,6 +83,10 @@ body {
     margin-top: 25px;
 }
 
+.chocolate {
+    color: chocolate;
+}
+
 .btn-summary-page:hover {
     transform: scale(1.1);
     cursor: pointer;

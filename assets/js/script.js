@@ -263,10 +263,10 @@ function startHardLevel() {
         {
             question: 'How many stars are on the national Flag of USA?',
             answers: [
-                { text: 'seven', correct: true },
-                { text: 'eleven', correct: false },
-                { text: 'ten', correct: false },
-                { text: 'infinite', correct: false }
+                { text: 'Fifty stars', correct: true },
+                { text: 'Twenty stars', correct: false },
+                { text: 'Ten stars', correct: false },
+                { text: 'Forty eight stars', correct: false }
             ]
         },
         {
