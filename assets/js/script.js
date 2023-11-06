@@ -420,6 +420,9 @@ function handleLevelSelection() {
         let hardGameContainer = document.getElementById('hard-game-container');
         hardGameContainer.classList.remove('hidden');
         normalGameSummary.classList.add('hidden');
+        Array.from(hardAnswerBtns.children).forEach(button => {
+            button.classList.add('hidden');
+        });
         startHardLevel();
     });
 
