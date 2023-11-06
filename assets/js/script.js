@@ -10,6 +10,7 @@ const normalQuestion = document.getElementById('normal-question');
 const normalAnswerBtns = document.getElementById('normal-answer-btns');
 const heading = document.getElementById('heading');
 const normalScoreText = document.getElementById('normal-score-text');
+const normalGameSummary = document.getElementById('normal-summary');
 
 const normalScorePoints = 20;
 
@@ -151,6 +152,20 @@ function startNormalLevel() {
 };
 
 function getNewQuestion() {
+    let MAX_QUESTIONS = 5;
+
+    if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+        localStorage.setItem('mostRecentScore', score);
+
+        let normalGameSummary = document.getElementById('normal-summary');
+        let normalScore = document.getElementById('normal-summary-score');
+        let normalTotalScore = document.getElementById('total-normal-summary-score');
+        let nextLevel = document.getElementById('next-level');
+
+        normalGameContainer.classList.add('hidden');
+        normalGameSummary.classList.remove('hidden');
+
+    }
 
     questionCounter++;
     console.log(questionCounter);
@@ -201,5 +216,5 @@ function selectAnswer(e) {
 
 function incrementScore(num) {
     score += num;
-    normalScoreText.innerText = ` ${score} / 500`;
+    normalScoreText.innerText = ` ${score} / 100`;
 }
