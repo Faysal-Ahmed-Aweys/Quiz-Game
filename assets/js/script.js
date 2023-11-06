@@ -155,13 +155,15 @@ function getNewQuestion() {
     let MAX_QUESTIONS = 5;
 
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-        localStorage.setItem('mostRecentScore', score);
+        let NormalGainedScore = localStorage.getItem('mostRecentScore');
 
         let normalGameSummary = document.getElementById('normal-summary');
         let normalScore = document.getElementById('normal-summary-score');
         let normalTotalScore = document.getElementById('total-normal-summary-score');
         let nextLevel = document.getElementById('next-level');
 
+        normalScore.innerHTML = NormalGainedScore;
+        normalTotalScore.innerHTML = 100;
         normalGameContainer.classList.add('hidden');
         normalGameSummary.classList.remove('hidden');
 
@@ -217,4 +219,5 @@ function selectAnswer(e) {
 function incrementScore(num) {
     score += num;
     normalScoreText.innerText = ` ${score} / 100`;
+    localStorage.setItem('mostRecentScore', score);
 }
