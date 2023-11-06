@@ -171,93 +171,183 @@ function startNormalLevel() {
 function startHardLevel() {
     const hardQuestions = [
         {
-            question: 'What is the orange part of an egg called - hard?',
+            question: 'How many rings does the planet saturn have?',
             answers: [
-                { text: 'Yolk', correct: true },
-                { text: 'Egg white', correct: false },
-                { text: 'Shell', correct: false },
-                { text: 'Shell membrane', correct: false }
+                { text: 'seven', correct: true },
+                { text: 'eleven', correct: false },
+                { text: 'ten', correct: false },
+                { text: 'infinite', correct: false }
             ]
         },
         {
-            question: 'How many legs do insects have - hard?',
+            question: 'What type of tree is pictured on the labanese flag?',
             answers: [
-                { text: 'Eight', correct: false },
-                { text: 'Fifty ninee', correct: false },
-                { text: 'Six', correct: true },
-                { text: 'Twenty eight', correct: false }
+                { text: 'Fig tree', correct: false },
+                { text: 'Walnut tree', correct: false },
+                { text: 'Cedar tree', correct: true },
+                { text: 'Oak tree', correct: false }
             ]
         },
         {
-            question: 'What is a baby kangaroo called - hard?',
+            question: 'How old was Queen Victoria when she died?',
             answers: [
-                { text: 'Calf', correct: false },
-                { text: 'Joey', correct: true },
-                { text: 'Lamb', correct: false },
-                { text: 'Kid', correct: false }
+                { text: 'Ninety nine', correct: false },
+                { text: 'Eighty one', correct: true },
+                { text: 'Forty five', correct: false },
+                { text: 'Sixty three', correct: false }
             ]
         },
         {
-            question: "What is the closest planet to the Sun - hard?",
+            question: "Who was the sixth president of the United States?",
             answers: [
-                { text: 'Mars', correct: false },
-                { text: 'venus', correct: false },
-                { text: 'Jupiter', correct: false },
-                { text: 'Mercury', correct: true }
+                { text: 'Bill Clinton', correct: false },
+                { text: 'Barack Obama', correct: false },
+                { text: 'George Bush', correct: false },
+                { text: 'John Quincy Adams', correct: true }
             ]
         },
         {
-            question: 'In which country can you find the Eiffel Tower - hard?',
+            question: 'What is the national animal of Germany?',
             answers: [
-                { text: 'China', correct: false },
-                { text: 'Dubai', correct: false },
-                { text: 'London', correct: false },
-                { text: 'Paris', correct: true }
+                { text: 'The Federal Monkey', correct: false },
+                { text: 'The Federal Lion', correct: false },
+                { text: 'The Federal Tiger', correct: false },
+                { text: 'The Federal Eagle', correct: true }
             ]
         },
         {
-            question: 'What is the name of a shape with 5 sides - hard?',
+            question: 'How many stars are on the flag of New Zealand?',
             answers: [
-                { text: 'Pentagon', correct: true },
-                { text: 'Hexagon', correct: false },
-                { text: 'Octagon', correct: false },
-                { text: 'Septagon', correct: false }
-            ]
-        },
-        {
-            question: 'How many letters are in the English alphabet - hard?',
-            answers: [
-                { text: 'Twenty five', correct: false },
-                { text: 'Twenty three', correct: false },
-                { text: 'Twenty six', correct: true },
-                { text: 'Twenty four', correct: false }
-            ]
-        },
-        {
-            question: 'How many players are in a football team - hard?',
-            answers: [
-                { text: 'six', correct: false },
-                { text: 'Eleven', correct: true },
-                { text: 'Eight', correct: false },
-                { text: 'Twenty one', correct: false }
-            ]
-        },
-        {
-            question: "Where do polar bears live - hard?",
-            answers: [
-                { text: 'The arctic', correct: true },
-                { text: 'The desert', correct: false },
-                { text: 'The forest', correct: false },
-                { text: 'The ocean', correct: false }
-            ]
-        },
-        {
-            question: 'How many continents are there - hard?',
-            answers: [
-                { text: 'Five', correct: false },
+                { text: 'Four', correct: true },
                 { text: 'Sixteen', correct: false },
-                { text: 'Six', correct: false },
-                { text: 'Seven', correct: true }
+                { text: 'Two', correct: false },
+                { text: 'Three', correct: false }
+            ]
+        },
+        {
+            question: 'Excluding Russia, which country is the most populated in Europe?',
+            answers: [
+                { text: 'Italy', correct: false },
+                { text: 'Hungary', correct: false },
+                { text: 'Germany', correct: true },
+                { text: 'United Kingdom', correct: false }
+            ]
+        },
+        {
+            question: 'What is the capital of Tajikistan?',
+            answers: [
+                { text: 'Seoul', correct: false },
+                { text: 'Dunshabe', correct: true },
+                { text: 'Peru', correct: false },
+                { text: 'Shangai', correct: false }
+            ]
+        },
+        {
+            question: "In celsius, what is the melting point of gold?",
+            answers: [
+                { text: '1064 degrees Celsius', correct: true },
+                { text: '260 degrees Celsius', correct: false },
+                { text: '1248 degrees Celsius', correct: false },
+                { text: '100 degrees Celsius', correct: false }
+            ]
+        },
+        {
+            question: "What is Shakespeare's shortest play?",
+            answers: [
+                { text: 'A Chrismas Carol', correct: false },
+                { text: 'Romeo and Juliet', correct: false },
+                { text: 'Macbeth', correct: false },
+                { text: 'The comedy of Errors', correct: true }
+            ]
+        },
+        {
+            question: 'How many stars are on the national Flag of USA?',
+            answers: [
+                { text: 'seven', correct: true },
+                { text: 'eleven', correct: false },
+                { text: 'ten', correct: false },
+                { text: 'infinite', correct: false }
+            ]
+        },
+        {
+            question: 'Who won the first football worldcup and what year was it?',
+            answers: [
+                { text: 'Italy - 1925', correct: false },
+                { text: 'France - 1949', correct: false },
+                { text: 'Uruguay - 1930', correct: true },
+                { text: 'Brazil - 1922', correct: false }
+            ]
+        },
+        {
+            question: 'Who designed the Eiffel Tower?',
+            answers: [
+                { text: 'Louis Eiffel', correct: false },
+                { text: 'Gustave Eiffel', correct: true },
+                { text: 'Gabriel Eiffel', correct: false },
+                { text: 'Marie Eiffel', correct: false }
+            ]
+        },
+        {
+            question: "What is the name of the longest river in the UK?",
+            answers: [
+                { text: 'Trent river', correct: false },
+                { text: 'Lea river', correct: false },
+                { text: 'Thames river', correct: false },
+                { text: 'Savern river', correct: true }
+            ]
+        },
+        {
+            question: 'Who was the youngest British Prime Minister?',
+            answers: [
+                { text: 'David Cameron', correct: false },
+                { text: 'John Major', correct: false },
+                { text: 'Boris Johnson', correct: false },
+                { text: 'William Pitt the Younger', correct: true }
+            ]
+        },
+        {
+            question: 'If you have cryophobia, what are you afraid of?',
+            answers: [
+                { text: 'Ice or cold', correct: true },
+                { text: 'crying', correct: false },
+                { text: 'Running', correct: false },
+                { text: 'water', correct: false }
+            ]
+        },
+        {
+            question: "How many bones are in an elephant's trunk?",
+            answers: [
+                { text: 'Zero', correct: false },
+                { text: 'A hundred', correct: false },
+                { text: 'Zero', correct: true },
+                { text: 'Twenty', correct: false }
+            ]
+        },
+        {
+            question: 'How many digits are in pi?',
+            answers: [
+                { text: '72.4 trillion decimals', correct: false },
+                { text: '62.8 trillion decimals', correct: true },
+                { text: '44.5 billion decimals', correct: false },
+                { text: '40 million decimals', correct: false }
+            ]
+        },
+        {
+            question: "How many time zones are there in Russia?",
+            answers: [
+                { text: 'Eleven', correct: true },
+                { text: 'Two', correct: false },
+                { text: 'Eleven', correct: false },
+                { text: 'Thirteen', correct: false }
+            ]
+        },
+        {
+            question: "Which English city was once known as Duroliponte?",
+            answers: [
+                { text: 'Luton', correct: false },
+                { text: 'Reading', correct: false },
+                { text: 'Oxford', correct: false },
+                { text: 'Cambridge', correct: true }
             ]
         }
     ];
@@ -430,8 +520,8 @@ function handleLevelSelectionNormal() {
         heading.classList.remove('hidden');
         homePage.classList.remove('hidden');
         normalGameSummary.classList.add('hidden');
-         Array.from(normalAnswerBtns.children).forEach(button => {
-        button.classList.add('hidden');
+        Array.from(normalAnswerBtns.children).forEach(button => {
+            button.classList.add('hidden');
         });
         Array.from(hardAnswerBtns.children).forEach(button => {
             button.classList.add('hidden');
