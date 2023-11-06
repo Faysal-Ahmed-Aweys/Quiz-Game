@@ -526,31 +526,32 @@ intervalTimerNormal = () => {
         }
 
     }, 1000);
-};
 
-selectAnswerNormal = (e) => {
-
-    const selectedBtn = e.target;
-    console.log(selectedBtn);
-    const isCorrect = selectedBtn.dataset.correct === "true";
-    if (isCorrect) {
-        selectedBtn.style.color = "green";
-        incrementScore(normalScorePoints);
-        console.log(isCorrect);
-    } else {
-        selectedBtn.style.color = "red";
-        console.log(isCorrect);
-    }
-    Array.from(normalAnswerBtns.children).forEach(button => {
-        button.disabled = true;
-    });
-    setTimeout(() => {
+    selectAnswerNormal = (e) => {
+        clearInterval(timer);
+        timerTextNormal.innerHTML = "";
+        const selectedBtn = e.target;
+        console.log(selectedBtn);
+        const isCorrect = selectedBtn.dataset.correct === "true";
+        if (isCorrect) {
+            selectedBtn.style.color = "green";
+            incrementScore(normalScorePoints);
+            console.log(isCorrect);
+        } else {
+            selectedBtn.style.color = "red";
+            console.log(isCorrect);
+        }
         Array.from(normalAnswerBtns.children).forEach(button => {
-            button.classList.add('hidden');
+            button.disabled = true;
         });
-        normalQuestion.classList.add('hidden');
-        getNewNormalQuestion();
-    }, 1000);
+        setTimeout(() => {
+            Array.from(normalAnswerBtns.children).forEach(button => {
+                button.classList.add('hidden');
+            });
+            normalQuestion.classList.add('hidden');
+            getNewNormalQuestion();
+        }, 1000);
+    };
 };
 
 intervalTimerHard = () => {
@@ -593,30 +594,32 @@ intervalTimerHard = () => {
         }
 
     }, 1000);
-};
 
-selectAnswerHard = (e) => {
-    const selectedBtn = e.target;
-    console.log(selectedBtn);
-    const isCorrect = selectedBtn.dataset.correct === "true";
-    if (isCorrect) {
-        selectedBtn.style.color = "green";
-        incrementScore(hardScorePoints);
-        console.log(isCorrect);
-    } else {
-        selectedBtn.style.color = "red";
-        console.log(isCorrect);
-    }
-    Array.from(hardAnswerBtns.children).forEach(button => {
-        button.disabled = true;
-    });
-    setTimeout(() => {
+    selectAnswerHard = (e) => {
+        clearInterval(timer);
+        timerTextHard.innerHTML = "";
+        const selectedBtn = e.target;
+        console.log(selectedBtn);
+        const isCorrect = selectedBtn.dataset.correct === "true";
+        if (isCorrect) {
+            selectedBtn.style.color = "green";
+            incrementScore(hardScorePoints);
+            console.log(isCorrect);
+        } else {
+            selectedBtn.style.color = "red";
+            console.log(isCorrect);
+        }
         Array.from(hardAnswerBtns.children).forEach(button => {
-            button.classList.add('hidden');
+            button.disabled = true;
         });
-        hardQuestion.classList.add('hidden');
-        getNewHardQuestion();
-    }, 1000);
+        setTimeout(() => {
+            Array.from(hardAnswerBtns.children).forEach(button => {
+                button.classList.add('hidden');
+            });
+            hardQuestion.classList.add('hidden');
+            getNewHardQuestion();
+        }, 1000);
+    };
 };
 
 function handleLevelSelectionNormal() {
