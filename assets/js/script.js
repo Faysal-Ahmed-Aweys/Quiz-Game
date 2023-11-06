@@ -1,3 +1,4 @@
+const homePage = document.getElementById('home-page');
 const formSection = document.getElementById('form-section');
 const difficultyPage = document.getElementById('difficulty-section');
 const normalButton = document.getElementById('normal-button');
@@ -20,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function displayUsernameForm() {
-    let homePage = document.getElementById('home-page');
     homePage.classList.add('hidden');
     formSection.classList.remove('hidden');
     formSection.addEventListener('submit', function (event) {
@@ -144,6 +144,7 @@ function startNormalLevel() {
     ];
 
     availableQuestions = [...questions];
+    normalScoreText.innerText = ` 0 / 100`;
     normalTotalScore.innerHTML = 100;
     questionCounter = 0;
     score = 0;
@@ -155,17 +156,17 @@ function getNewQuestion() {
     let MAX_QUESTIONS = 5;
 
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-        let NormalGainedScore = localStorage.getItem('mostRecentScore');
+        let NormalGainedScore = localStorage.setItem('mostRecentScore');
 
-        let normalGameSummary = document.getElementById('normal-summary');
         let normalScore = document.getElementById('normal-summary-score');
         let normalTotalScore = document.getElementById('total-normal-summary-score');
-        let nextLevel = document.getElementById('next-level');
 
         normalScore.innerHTML = NormalGainedScore;
         normalTotalScore.innerHTML = 100;
         normalGameContainer.classList.add('hidden');
         normalGameSummary.classList.remove('hidden');
+        handleLevelSelection();
+        localStorage.clear('mostRecentScore');
 
     }
 
@@ -216,8 +217,37 @@ function selectAnswer(e) {
     }, 1000);
 }
 
+function handleLevelSelection() {
+    let playAgainNormal = document.getElementById('play-again-normal');
+    let nextLevel = document.getElementById('next-level');
+    let homeButtonNormal = document.getElementById('home-button-normal');
+
+    playAgainNormal.addEventListener('click', () => {
+        Array.from(normalAnswerBtns.children).forEach(button => {
+            button.classList.add('hidden');
+        });
+        normalGameSummary.classList.add('hidden');
+        normalGameContainer.classList.remove('hidden');
+
+        startNormalLevel();
+    });
+
+    nextLevel.addEventListener('click', () => {
+        let hardGameContainer = document.getElementById('hard-game-container');
+        hardGameContainer.classList.remove('hidden');
+        normalGameSummary.classList.add('hidden');
+
+    });
+
+    homeButtonNormal.addEventListener('click', () => {
+        let hardGameContainer = document.getElementById('hard-game-container');
+        heading.classList.remove('hidden');
+        homePage.classList.remove('hidden');
+        normalGameSummary.classList.add('hidden');
+    });
+}
+
 function incrementScore(num) {
     score += num;
     normalScoreText.innerText = ` ${score} / 100`;
-    localStorage.setItem('mostRecentScore', score);
 }
