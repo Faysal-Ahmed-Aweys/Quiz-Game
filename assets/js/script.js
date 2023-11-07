@@ -57,6 +57,7 @@ window.onload = function () {
     if (totalScored < 100 || totalScored === null) {
         fancyName.innerHTML = "Status: Beginner";
         chocolate.innerHTML = `${100 - totalScored}`;
+        nextStatus.innerHTML = "Amateur";
         console.log("it is ");
     } else if (totalScored < 200) {
         fancyName.innerHTML = "Status: Amateur";
