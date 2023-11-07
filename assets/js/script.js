@@ -127,12 +127,13 @@ function handleDifficultySelection() {
         difficultyPage.classList.add('hidden');
         heading.classList.add('hidden');
         readyText.classList.remove('hidden');
-        let count = 3;
+        let count = 4;
         let readyCountdownNormal = setInterval(function () {
-            countDownText.innerHTML = count;
             console.log(count);
             count--;
-            if (count < 0) {
+            countDownText.innerHTML = count;
+            if (count <= 0) {
+                clearInterval(readyCountdownNormal);
                 countDownText.innerHTML = "";
             };
 
@@ -151,11 +152,12 @@ function handleDifficultySelection() {
         difficultyPage.classList.add('hidden');
         heading.classList.add('hidden');
         readyText.classList.remove('hidden');
-        let count = 3;
+        let count = 4;
         let readyCountdownHard = setInterval(function () {
-            countDownText.innerHTML = count;
             count--;
-            if (count < 0) {
+            countDownText.innerHTML = count;
+            if (count < 1) {
+                clearInterval(readyCountdownHard);
                 countDownText.innerHTML = "";
             };
 
