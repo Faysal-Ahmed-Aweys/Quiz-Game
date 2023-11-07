@@ -142,7 +142,7 @@ function handleDifficultySelection() {
             clearInterval(readyCountdownNormal);
             countDownText.classList.add('hidden');
             readyText.classList.add('hidden');
-        }, 4500);
+        }, 4000);
 
     });
 
@@ -165,7 +165,7 @@ function handleDifficultySelection() {
             clearInterval(readyCountdownHard);
             countDownText.classList.add('hidden');
             readyText.classList.add('hidden');
-        }, 4500);
+        }, 4000);
     });
 }
 
@@ -580,12 +580,15 @@ function getNewHardQuestion() {
 }
 
 intervalTimerNormal = () => {
-    let count = 5;
+    let count = 6;
     let timer = setInterval(function () {
-        timerTextNormal.innerHTML = count;
         console.log(count);
+        timerTextNormal.innerHTML = count - 1;
         count--;
         if (count <= 0) {
+            Array.from(normalAnswerBtns.children).forEach(button => {
+                button.disabled = true;
+            });
             let questionsIndex = Math.floor(Math.random() * availableQuestions.length);
             let currentQuestion = availableQuestions[questionsIndex];
             clearInterval(timer);
@@ -648,12 +651,15 @@ intervalTimerNormal = () => {
 };
 
 intervalTimerHard = () => {
-    let count = 10;
+    let count = 11;
     let timer = setInterval(function () {
-        timerTextHard.innerHTML = count;
+        timerTextHard.innerHTML = count - 1;
         console.log(count);
         count--;
         if (count <= 0) {
+            Array.from(hardAnswerBtns.children).forEach(button => {
+                button.disabled = true;
+            });
             let questionsIndex = Math.floor(Math.random() * availableQuestions.length);
             let currentQuestion = availableQuestions[questionsIndex];
             clearInterval(timer);
