@@ -142,7 +142,7 @@ function handleDifficultySelection() {
             clearInterval(readyCountdownNormal);
             countDownText.classList.add('hidden');
             readyText.classList.add('hidden');
-        }, 4000);
+        }, 4500);
 
     });
 
@@ -165,7 +165,7 @@ function handleDifficultySelection() {
             clearInterval(readyCountdownHard);
             countDownText.classList.add('hidden');
             readyText.classList.add('hidden');
-        }, 4000);
+        }, 4500);
     });
 }
 
@@ -763,7 +763,6 @@ function handleLevelSelectionNormal() {
             button.classList.add('hidden');
         });
         setTimeout(() => {
-            hardGameContainer.classList.remove('hidden');
             startHardLevel();
             clearInterval(readyCountdownNormal);
             countDownText.classList.add('hidden');
