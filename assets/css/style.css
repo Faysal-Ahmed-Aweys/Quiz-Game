@@ -32,10 +32,6 @@ body {
     color: red;
 }
 
-.capitalise {
-    text-transform: uppercase;
-}
-
 #home-page,
 #form-section,
 #difficulty-section {

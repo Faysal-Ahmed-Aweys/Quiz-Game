@@ -1,4 +1,5 @@
 const homePage = document.getElementById('home-page');
+const totalScore = document.getElementById('total-score');
 const formSection = document.getElementById('form-section');
 const difficultyPage = document.getElementById('difficulty-section');
 
@@ -39,6 +40,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 window.onload = function () {
     let personUsername = localStorage.getItem('person-username');
+    let totalScored = localStorage.getItem('totalScore');
+    if (totalScored === null) {
+        totalScored = 0;
+        totalScore.innerHTML = `totalscore: ${parseInt(totalScored)}`;
+    }
+    else {
+        totalScore.innerHTML = `totalscore: ${parseInt(totalScored)}`;
+    }
     if (personUsername !== null) {
         let startBtn = document.getElementById('start-button');
         startBtn.addEventListener('click', displayDifficultyPage);
@@ -436,11 +445,20 @@ function getNewNormalQuestion() {
         let normalScoreSummary = document.getElementById('normal-scoredText');
 
         let NormalGainedScore = localStorage.getItem('mostRecentScore');
+
+        totalScored = localStorage.getItem('totalScore');
+        if (totalScored > 0) {
+            totalScored = parseInt(totalScored) + parseInt(NormalGainedScore);
+        } else {
+            totalScored = parseInt(NormalGainedScore);
+        }
         if (NormalGainedScore >= 100) {
             normalScoreSummary.innerHTML = `You Scored ${NormalGainedScore} / 100 <br> Well done!`;
         } else {
             normalScoreSummary.innerHTML = `You Scored ${NormalGainedScore} / 100 <br> You can do better!`;
         }
+        localStorage.setItem('totalScore', totalScored);
+        console.log(totalScored);
         let normalScore = document.getElementById('normal-summary-score');
         let normalTotalScore = document.getElementById('total-normal-summary-score');
 
@@ -485,12 +503,19 @@ function getNewHardQuestion() {
         let hardGainedScore = localStorage.getItem('mostRecentScore');
         let hardScore = document.getElementById('hard-summary-score');
         let hardTotalScore = document.getElementById('total-normal-summary-score');
-
+        totalScored = localStorage.getItem('totalScore');
+        if (totalScored > 0) {
+            totalScored = parseInt(totalScored) + parseInt(hardGainedScore);
+        } else {
+            totalScored = parseInt(hardGainedScore);
+        }
         if (hardGainedScore >= 400) {
             hardScoreSummary.innerHTML = `You Scored ${hardGainedScore} / 400 <br> Well done!`;
         } else {
             hardScoreSummary.innerHTML = `You Scored ${hardGainedScore} / 400 <br> You can do better!`;
         }
+        localStorage.setItem('totalScore', totalScored);
+        console.log(totalScored);
 
         hardQuestion.classList.add('hidden');
         hardGameContainer.classList.add('hidden');
