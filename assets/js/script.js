@@ -6,6 +6,8 @@ const nextStatus = document.getElementById('next-status');
 const formSection = document.getElementById('form-section');
 const difficultyPage = document.getElementById('difficulty-section');
 
+const aboutGameButton = document.getElementById('about-button')
+
 const chocolate = document.getElementById('chocolate');
 
 const normalButton = document.getElementById('normal-button');
@@ -40,6 +42,7 @@ const hardScorePoints = 40;
 
 document.addEventListener("DOMContentLoaded", function () {
     let startBtn = document.getElementById('start-button');
+    aboutGameButton.addEventListener('click', showGameRules)
     startBtn.addEventListener('click', displayUsernameForm);
 });
 
@@ -92,6 +95,14 @@ window.onload = function () {
 
 
 };
+
+
+function showGameRules() {
+    let aboutPage = document.getElementById('about-page')
+    aboutPage.classList.remove('hidden')
+    homePage.classList.add('hidden')
+    
+}
 
 function displayUsernameForm() {
     homePage.classList.add('hidden');

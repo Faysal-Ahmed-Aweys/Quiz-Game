@@ -106,7 +106,8 @@ a {
 #start-button,
 #submit-button,
 #home-button-normal,
-#home-button-hard {
+#home-button-hard,
+#about-button {
     width: 80%;
     margin: auto;
     background: black;
@@ -114,6 +115,11 @@ a {
     font-size: 30px;
     height: 100px;
     cursor: pointer;
+}
+
+#about-button {
+    background-color: white;
+    color: black;
 }
 
 #normal-scoredText {
