@@ -5,9 +5,9 @@ const nextFancyName = document.getElementById('next-fancy-name');
 const nextStatus = document.getElementById('next-status');
 const formSection = document.getElementById('form-section');
 const difficultyPage = document.getElementById('difficulty-section');
-const aboutPageHomeButton = document.getElementById('home-button-about-page')
+const aboutPageHomeButton = document.getElementById('home-button-about-page');
 
-const aboutGameButton = document.getElementById('about-button')
+const aboutGameButton = document.getElementById('about-button');
 
 const chocolate = document.getElementById('chocolate');
 
@@ -43,7 +43,7 @@ const hardScorePoints = 40;
 
 document.addEventListener("DOMContentLoaded", function () {
     let startBtn = document.getElementById('start-button');
-    aboutGameButton.addEventListener('click', showGameRules)
+    aboutGameButton.addEventListener('click', showGameRules);
     startBtn.addEventListener('click', displayUsernameForm);
 });
 
@@ -99,14 +99,14 @@ window.onload = function () {
 
 
 function showGameRules() {
-    let aboutPage = document.getElementById('about-page')
-    aboutPage.classList.remove('hidden')
-    homePage.classList.add('hidden')
+    let aboutPage = document.getElementById('about-page');
+    aboutPage.classList.remove('hidden');
+    homePage.classList.add('hidden');
     aboutPageHomeButton.addEventListener('click', function () {
-        homePage.classList.remove('hidden')
-        aboutPage.classList.add('hidden')
-    })
-    
+        homePage.classList.remove('hidden');
+        aboutPage.classList.add('hidden');
+    });
+
 }
 
 function displayUsernameForm() {
@@ -658,6 +658,9 @@ intervalTimerNormal = () => {
         }
         Array.from(normalAnswerBtns.children).forEach(button => {
             button.disabled = true;
+            if (button.dataset.correct === "true") {
+                button.style.color = "green";
+            }
         });
         setTimeout(() => {
             Array.from(normalAnswerBtns.children).forEach(button => {
@@ -729,6 +732,9 @@ intervalTimerHard = () => {
         }
         Array.from(hardAnswerBtns.children).forEach(button => {
             button.disabled = true;
+            if (button.dataset.correct === "true") {
+                button.style.color = "green";
+            }
         });
         setTimeout(() => {
             Array.from(hardAnswerBtns.children).forEach(button => {
@@ -788,6 +794,7 @@ function handleLevelSelectionNormal() {
             button.classList.add('hidden');
         });
         setTimeout(() => {
+            hardGameContainer.classList.remove('hidden');
             startHardLevel();
             clearInterval(readyCountdownNormal);
             countDownText.classList.add('hidden');
