@@ -1,7 +1,8 @@
 const homePage = document.getElementById('home-page');
 const totalScore = document.getElementById('total-score');
 const fancyName = document.getElementById('fancy-name');
-nextFancyName = document.getElementById('next-fancy-name');
+const nextFancyName = document.getElementById('next-fancy-name');
+const nextStatus = document.getElementById('next-status');
 const formSection = document.getElementById('form-section');
 const difficultyPage = document.getElementById('difficulty-section');
 
@@ -60,14 +61,17 @@ window.onload = function () {
     } else if (totalScored < 200) {
         fancyName.innerHTML = "Status: Amateur";
         chocolate.innerHTML = `${200 - totalScored}`;
+        nextStatus.innerHTML = "Advanced";
     }
     else if (totalScored < 300) {
         fancyName.innerHTML = "Status: Advanced";
         chocolate.innerHTML = `${300 - totalScored}`;
+        nextStatus.innerHTML = "Professional";
     }
     else if (totalScored < 400) {
         fancyName.innerHTML = "Status: Professional";
         chocolate.innerHTML = `${400 - totalScored}`;
+        nextStatus.innerHTML = "Unstoppable";
     }
     else {
         fancyName.innerHTML = "Status: Unstoppable";
