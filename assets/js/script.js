@@ -49,6 +49,12 @@ function displayUsernameForm() {
 function displayDifficultyPage() {
     formSection.classList.add('hidden');
     difficultyPage.classList.remove('hidden');
+    let greeting = document.getElementById('greeting');
+    let username = document.getElementById('username');
+    let usernameValue = username.value;
+    localStorage.setItem('person-username', usernameValue);
+    console.log(usernameValue);
+    greeting.innerHTML = `Hi ${usernameValue}, Choose Difficulty`;
     handleDifficultySelection();
 }
 
