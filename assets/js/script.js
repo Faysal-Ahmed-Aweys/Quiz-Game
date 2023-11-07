@@ -2,9 +2,10 @@ const homePage = document.getElementById('home-page');
 const totalScore = document.getElementById('total-score');
 const fancyName = document.getElementById('fancy-name');
 nextFancyName = document.getElementById('next-fancy-name');
-let chocolate = document.getElementById('chocolate');
 const formSection = document.getElementById('form-section');
 const difficultyPage = document.getElementById('difficulty-section');
+
+const chocolate = document.getElementById('chocolate');
 
 const normalButton = document.getElementById('normal-button');
 const hardButton = document.getElementById('hard-button');
@@ -50,22 +51,23 @@ window.onload = function () {
     }
     else {
         totalScore.innerHTML = `totalscore: ${parseInt(totalScored)}`;
+
     }
     if (totalScored < 100 || totalScored === null) {
         fancyName.innerHTML = "Status: Beginner";
-        nextFancyName.innerHTML = `Amateur in ${100 - totalScored} points`;
+        chocolate.innerHTML = `${100 - totalScored}`;
         console.log("it is ");
     } else if (totalScored < 200) {
         fancyName.innerHTML = "Status: Amateur";
-        nextFancyName.innerHTML = `Advanced in ${200 - totalScored} points`;
+        chocolate.innerHTML = `${200 - totalScored}`;
     }
     else if (totalScored < 300) {
         fancyName.innerHTML = "Status: Advanced";
-        nextFancyName.innerHTML = `Professional in ${300 - totalScored} points`;
+        chocolate.innerHTML = `${300 - totalScored}`;
     }
     else if (totalScored < 400) {
         fancyName.innerHTML = "Status: Professional";
-        nextFancyName.innerHTML = `Unstoppable in ${400 - totalScored} points`;
+        chocolate.innerHTML = `${400 - totalScored}`;
     }
     else {
         fancyName.innerHTML = "Status: Unstoppable";
