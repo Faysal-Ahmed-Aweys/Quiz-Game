@@ -5,6 +5,7 @@ const nextFancyName = document.getElementById('next-fancy-name');
 const nextStatus = document.getElementById('next-status');
 const formSection = document.getElementById('form-section');
 const difficultyPage = document.getElementById('difficulty-section');
+const aboutPageHomeButton = document.getElementById('home-button-about-page')
 
 const aboutGameButton = document.getElementById('about-button')
 
@@ -101,6 +102,10 @@ function showGameRules() {
     let aboutPage = document.getElementById('about-page')
     aboutPage.classList.remove('hidden')
     homePage.classList.add('hidden')
+    aboutPageHomeButton.addEventListener('click', function () {
+        homePage.classList.remove('hidden')
+        aboutPage.classList.add('hidden')
+    })
     
 }
 

@@ -107,7 +107,8 @@ a {
 #submit-button,
 #home-button-normal,
 #home-button-hard,
-#about-button {
+#about-button,
+#home-button-about-page {
     width: 80%;
     margin: auto;
     background: black;
