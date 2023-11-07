@@ -44,6 +44,8 @@ window.onload = function () {
         startBtn.addEventListener('click', displayDifficultyPage);
         formSection.remove();
         console.log(personUsername);
+        let homeGreeting = document.getElementById('home-greeting');
+        homeGreeting.innerHTML = `Hello, ${personUsername}`;
         let greeting = document.getElementById('greeting');
         greeting.innerHTML = `Hi ${personUsername}, Choose Difficulty`;
     }

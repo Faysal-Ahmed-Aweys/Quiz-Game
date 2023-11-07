@@ -32,6 +32,10 @@ body {
     color: red;
 }
 
+.capitalise {
+    text-transform: uppercase;
+}
+
 #home-page,
 #form-section,
 #difficulty-section {
@@ -42,6 +46,7 @@ body {
     margin-bottom: 20px;
     color: whitesmoke;
     position: relative;
+    text-transform: capitalize;
 }
 
 #normal-answer-btns,
