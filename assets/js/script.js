@@ -37,6 +37,20 @@ document.addEventListener("DOMContentLoaded", function () {
     startBtn.addEventListener('click', displayUsernameForm);
 });
 
+window.onload = function () {
+    let personUsername = localStorage.getItem('person-username');
+    if (personUsername !== null) {
+        let startBtn = document.getElementById('start-button');
+        startBtn.addEventListener('click', displayDifficultyPage);
+        formSection.remove();
+        console.log(personUsername);
+        let greeting = document.getElementById('greeting');
+        greeting.innerHTML = `Hi ${personUsername}, Choose Difficulty`;
+    }
+
+
+};
+
 function displayUsernameForm() {
     homePage.classList.add('hidden');
     formSection.classList.remove('hidden');
@@ -47,14 +61,22 @@ function displayUsernameForm() {
 };
 
 function displayDifficultyPage() {
+    let personUsername = localStorage.getItem('person-username');
+    if (personUsername === null) {
+        let greeting = document.getElementById('greeting');
+        let username = document.getElementById('username');
+        let usernameValue = username.value;
+        localStorage.setItem('person-username', usernameValue);
+        console.log(usernameValue);
+        greeting.innerHTML = `Hi ${usernameValue}, Choose Difficulty`;
+    } else {
+        let personUsername = localStorage.getItem('person-username');
+        let greeting = document.getElementById('greeting');
+        let usernameValue = personUsername;
+        greeting.innerHTML = `Hi ${usernameValue}, Choose Difficulty`;
+    }
     formSection.classList.add('hidden');
     difficultyPage.classList.remove('hidden');
-    let greeting = document.getElementById('greeting');
-    let username = document.getElementById('username');
-    let usernameValue = username.value;
-    localStorage.setItem('person-username', usernameValue);
-    console.log(usernameValue);
-    greeting.innerHTML = `Hi ${usernameValue}, Choose Difficulty`;
     handleDifficultySelection();
 }
 
