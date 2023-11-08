@@ -23,11 +23,6 @@ a {
     color: whitesmoke;
 }
 
-i {
-    font-size: 3rem;
-    margin: 10px 0;
-}
-
 /* generic classes */
 .hidden {
     display: none;
@@ -98,7 +93,7 @@ i {
     text-align: center;
     height: auto;
     margin: auto;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     color: whitesmoke;
     text-transform: capitalize;
 }
@@ -113,7 +108,7 @@ i {
 #home-button-about-page {
     width: 80%;
     margin: auto;
-    margin-bottom: 20px;
+    margin-bottom: 150px;
     background: black;
     color: whitesmoke;
     font-size: 30px;
@@ -121,11 +116,14 @@ i {
     cursor: pointer;
 }
 
+#start-button {
+    margin: 20px 0;
+}
+
 /* home page */
 #about-button {
     background-color: whitesmoke;
     color: black;
-    margin-bottom: 150px;
 }
 
 #chocolate {
@@ -146,7 +144,15 @@ i {
 .btn-difficulty {
     padding: 20px;
     width: 50%;
-    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.btn-difficulty:first-of-type {
+    margin-top: 20px;
+}
+
+.btn-difficulty:second-of-type {
+    margin-bottom: 50px;
 }
 
 /* Normal and hard difficulty games */
@@ -176,7 +182,6 @@ i {
     border: none;
     border-radius: 20px;
     color: whitesmoke;
-    padding: 20px;
 }
 
 #normal-answer-btns button,
@@ -209,4 +214,9 @@ i {
     padding: 10px;
     position: absolute;
     bottom: 0;
+}
+
+.icon {
+    font-size: 3rem;
+    margin: 10px 0;
 }

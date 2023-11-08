@@ -33,7 +33,7 @@ const normalGameSummary = document.getElementById('normal-summary');
 const hardGameSummary = document.getElementById('hard-summary');
 // Global constants for when playing the game levels
 const normalScorePoints = 20;
-const hardScorePoints = 40; 
+const hardScorePoints = 40;
 
 document.addEventListener("DOMContentLoaded", function () {
     startBtn.addEventListener('click', displayUsernameForm);
@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 window.onload = function () {
+    localStorage.clear()
     let personUsername = localStorage.getItem('person-username');
     let totalScored = localStorage.getItem('totalScore');
     if (totalScored === null) {
@@ -134,7 +135,6 @@ function displayDifficultyPage() {
 function handleDifficultySelection() {
     normalButton.addEventListener('click', function () {
         difficultyPage.classList.add('hidden');
-        heading.classList.add('hidden');
         readyText.classList.remove('hidden');
         let count = 4;
         let readyCountdownNormal = setInterval(function () {
@@ -159,7 +159,6 @@ function handleDifficultySelection() {
 
     hardButton.addEventListener('click', function () {
         difficultyPage.classList.add('hidden');
-        heading.classList.add('hidden');
         readyText.classList.remove('hidden');
         let count = 4;
         let readyCountdownHard = setInterval(function () {
