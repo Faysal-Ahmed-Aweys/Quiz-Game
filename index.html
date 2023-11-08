@@ -23,15 +23,15 @@
 
       <!-- home page container -->
       <div id="home-page" class="">
-        <h2 id="home-greeting" class="capitalise">Hello there!</h2>
+        <h2 id="home-greeting">Hello there!</h2>
         <h3 id="total-score" class="margin-top padding">totalscore:</h3>
         <h4 id="fancy-name" class="padding">Status: Beginner</h4>
         <h5 id="next-fancy-name" class="margin-bottom padding">Become <span id="next-status"></span> in <span id="chocolate">500</span> points</h5>
         <nav>
-          <button aria-label="start game" id="start-button" class="x-large btn uppercase margin-top">
+          <button aria-label="start game" id="start-button" class="btn uppercase margin-top">
             Start Game
           </button><br><br>
-          <button aria-label="about the game" id="about-button" class="x-large btn uppercase margin-top">
+          <button aria-label="about the game" id="about-button" class="btn uppercase margin-top">
             About the game
           </button>
         </nav>
@@ -47,7 +47,7 @@
         <p>Normal difficulty contains 5 questions in each game and each correct question gives 20 points out of 100 total points. each question should be answered within 10 seconds at the end of the game you will be presented with a feedback on how you did. You can then choose to play again or if you feel confident, you can go harder and play next level or you can Go back to main menu to see your total score and status</p><br>
         <p>2. Hard difficulty</p>
         <p>hard difficulty contains 10 questions in each game and each correct question gives 40 points out of 400 total points. Each question should be answered within 10 seconds. at the end of the game you will be presented with a feedback on how you did. You can then choose to play again or Go back to main menu to see your total score and status</p><br>
-        <button id="home-button-about-page" class="text-center uppercase btn x-large btn-summary-page">Home</button>
+        <button id="home-button-about-page" class="text-center uppercase btn btn-summary-page">Home</button>
 
       </aside>
 
@@ -65,17 +65,17 @@
             placeholder="maximum 15 letters!"
             required
           /><br /><br />
-          <button aria-label="submit username form" id="submit-button" class="x-large btn uppercase margin-top">Submit</button>
+          <button aria-label="submit username form" id="submit-button" class=" btn uppercase margin-top">Submit</button>
         </form>
       </section>
 
       <!-- difficulty-selection section -->
       <section id="difficulty-section" class="difficulty-selector hidden">
         <h2 id="greeting" class="margin-top padding uppercase">Hi, Choose Difficulty</h2>
-        <button aria-label="normal difficulty" id="normal-button" class="uppercase larger green btn-difficulty">
+        <button aria-label="normal difficulty" id="normal-button" class="uppercase larger green btn btn-difficulty">
           Normal</button
         ><br /><br />
-        <button aria-label="hard difficulty" id="hard-button" class="uppercase larger red btn-difficulty">
+        <button aria-label="hard difficulty" id="hard-button" class="uppercase larger red btn btn-difficulty">
           Hard</button
         ><br /><br />
       </section>
@@ -86,7 +86,7 @@
 
       <!-- normal difficulty game container -->
     <section id="normal-game-container" class="game-container hidden">
-        <h1 id="normal-scoreholder" class="scoreText text-center uppercase score-heading">score:<span id="normal-score-text"> 0 / <span
+        <h1 id="normal-scoreholder" class="uppercase score-heading">score:<span id="normal-score-text"> 0 / <span
             id="normal-total-score">0</span></h1>
         <h2 id="normal-question">Can you answer this question?</h2><span id="timer-normal"></span>
             <!-- creating a div for answer buttons and then using JS to create the buttons was adapted from https://youtu.be/PBcqGxrr9g8?si=wFop-R1mBQ_KiAhY -->
@@ -97,7 +97,7 @@
 
     <!-- hard difficulty game container -->
     <section id="hard-game-container" class="game-container hidden">
-        <h1 id="hard-scoreholder" class="scoreText text-center uppercase score-heading">score:<span id="hard-score-text"> 0 / <span
+        <h1 id="hard-scoreholder" class="uppercase score-heading">score:<span id="hard-score-text"> 0 / <span
                     id="hard-total-score">200</span></h1>
         <h2 id="hard-question">Can you answer this question?</h2><span id="timer-hard"></span>
         <!-- creating a div for answer buttons and then using JS to create the buttons was adapted from https://youtu.be/PBcqGxrr9g8?si=wFop-R1mBQ_KiAhY -->
@@ -106,18 +106,18 @@
 
     <!-- Normal game summary section -->
     <section id="normal-summary" class="summary hidden">
-        <h1 id="normal-scoredText" class="margin-top text-center">You scored <span id="normal-summary-score"> 0 </span> / <span
+        <h1 id="normal-scoredText" class="margin-top text-center scored-text">You scored <span id="normal-summary-score"> 0 </span> / <span
                 id="total-normal-summary-score">100</span></h1>
-        <button aria-label="play normal difficulty again" id="play-again-normal" class="uppercase larger green btn-summary-page">Play Again</button><br><br>
-        <button aria-label="play hard difficulty" id="next-level" class="disabled uppercase larger red btn-summary-page">Next Level</button><br><br>
+        <button aria-label="play normal difficulty again" id="play-again-normal" class="uppercase larger green btn btn-summary-page">Play Again</button><br><br>
+        <button aria-label="play hard difficulty" id="next-level" class="disabled uppercase larger red btn btn-summary-page">Next Level</button><br><br>
         <a aria-label="Go to home page" href="index.html"><button id="home-button-normal" class="text-center uppercase btn x-large btn-summary-page">Home</button></a>
         </section>
 
     <!-- hard game summary section -->
     <section id="hard-summary" class="summary hidden">
-        <h3 id="hard-scoredText" class="margin-top text-center"> You scored <span id="hard-summary-score"> 0 </span> / <span
+        <h3 id="hard-scoredText" class="margin-top text-center scored-text"> You scored <span id="hard-summary-score"> 0 </span> / <span
                 id="total-hard-summary-score">400</span></h3>
-        <button aria-label="play hard difficulty again" id="play-again-hard" class="uppercase larger red btn-summary-page">Play Again</button><br><br>
+        <button aria-label="play hard difficulty again" id="play-again-hard" class="uppercase larger red btn btn-summary-page">Play Again</button><br><br>
         <a aria-label="Go to home page" href="index.html"><button id="home-button-hard" class="text-center uppercase btn x-large btn-summary-page">Home</button></a>
         </section>
     </main>

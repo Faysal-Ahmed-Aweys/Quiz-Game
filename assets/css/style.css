@@ -1,5 +1,7 @@
+/* Google font DM Sans */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;0,9..40,1000;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900;1,9..40,1000&family=Nova+Square&display=swap');
 
+/* general styles */
 * {
     box-sizing: border-box;
     padding: 0;
@@ -14,24 +16,68 @@ body {
     background-color: teal;
 }
 
+a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+/* generic classes */
+.hidden {
+    display: none;
+}
+
+.margin-bottom {
+    margin-bottom: 80px;
+}
+
+.margin-top {
+    margin-top: 90px;
+}
+
 .padding {
     padding: 5px;
 }
 
-.game-container {
+.larger {
+    font-size: large;
+}
+
+.btn {
+    border: none;
+    padding: 4px;
+    border-radius: 5px;
+    text-align: center;
+    color: whitesmoke;
+    background: black;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+/* header */
+#heading {
+    font-size: 40px;
     width: 100%;
-    min-height: 100vh;
-    margin-top: 20px;
+    margin: auto;
+    color: black;
+    padding: 10px;
 }
 
-.correct {
-    color: green;
-}
-
-.incorrect {
-    color: red;
-}
-
+/* home page, form section and difficulty page reused code */
 #home-page,
 #form-section,
 #difficulty-section {
@@ -41,10 +87,66 @@ body {
     margin: auto;
     margin-bottom: 20px;
     color: whitesmoke;
-    position: relative;
     text-transform: capitalize;
 }
 
+/* home page */
+#about-button {
+    background-color: whitesmoke;
+    color: black;
+}
+
+#chocolate {
+    color: chocolate;
+}
+
+/* reused code for every home button and start,about-game and submit buttons */
+#start-button,
+#submit-button,
+#home-button-normal,
+#home-button-hard,
+#about-button,
+#home-button-about-page {
+    width: 80%;
+    margin: auto;
+    background: black;
+    color: whitesmoke;
+    font-size: 30px;
+    height: 100px;
+    cursor: pointer;
+}
+
+/* username form page */
+#username-form {
+    margin: 20px 0;
+    font-size: large;
+}
+
+#username {
+    margin-top: 10px;
+}
+
+/* difficulty page */
+.btn-difficulty {
+    padding: 20px;
+    width: 50%;
+    margin-top: 25px;
+}
+
+/* Normal and hard difficulty games */
+/* game container class for both hard and normal difficulties */
+.game-container {
+    width: 100%;
+    min-height: 100vh;
+    margin-top: 20px;
+}
+
+.score-heading {
+    font-size: 20px;
+    margin-bottom: 50px;
+}
+
+/* reused code for answer buttons in both normal and hard difficulty games */
 #normal-answer-btns,
 #hard-answer-btns {
     display: flex;
@@ -58,7 +160,6 @@ body {
     border: none;
     border-radius: 20px;
     color: whitesmoke;
-    /*background: gray;*/
     padding: 20px;
 }
 
@@ -72,149 +173,14 @@ body {
     font-size: 1rem;
 }
 
-
+/* Normal and hard games summary pages */
 .btn-summary-page {
-    border: none;
-    border-radius: 5px;
     padding: 20px;
-    text-align: center;
-    color: white;
     width: 70%;
     font-size: 20px;
     margin-top: 25px;
 }
 
-#chocolate {
-    color: chocolate;
-}
-
-.btn-summary-page:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-}
-
-.score-heading {
-    font-size: 20px;
-    margin-bottom: 50px;
-}
-
-a {
-    text-decoration: none;
-    color: whitesmoke;
-}
-
-#start-button,
-#submit-button,
-#home-button-normal,
-#home-button-hard,
-#about-button,
-#home-button-about-page {
-    width: 80%;
-    margin: auto;
-    background: black;
-    color: white;
-    font-size: 30px;
-    height: 100px;
-    cursor: pointer;
-}
-
-#about-button {
-    background-color: white;
-    color: black;
-}
-
-#normal-scoredText {
+.scored-text {
     font-size: 1.5rem;
-}
-
-#heading {
-    font-size: 40px;
-    width: 100%;
-    margin: auto;
-    color: black;
-    padding: 10px;
-}
-
-.hidden {
-    display: none;
-}
-
-.margin-bottom {
-    margin-bottom: 80px;
-}
-
-.margin-top {
-    margin-top: 90px;
-}
-
-#username {
-    margin-top: 10px;
-}
-
-.larger {
-    font-size: large;
-}
-
-.btn {
-    border: none;
-    padding: 4px;
-    border-radius: 5px;
-    text-align: center;
-    color: white;
-    background: black;
-}
-
-.red {
-    background-color: red;
-}
-
-.green {
-    background-color: green;
-}
-
-.btn-difficulty {
-    border: none;
-    border-radius: 5px;
-    padding: 20px;
-    text-align: center;
-    color: white;
-    width: 50%;
-    margin-top: 25px;
-}
-
-.btn-difficulty:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-}
-
-.btn:hover {
-    transform: scale(1.1);
-}
-
-.uppercase {
-    text-transform: uppercase;
-}
-
-.x-large {
-    font-size: x-large;
-}
-
-.welcome {
-    width: 60%;
-    height: 400px;
-    margin: auto;
-    color: black;
-    margin-top: 100px;
-    position: relative;
-    border: 2px solid black;
-    padding: 50px 0;
-}
-
-h1 {
-    font-size: 30px;
-}
-
-form {
-    margin: 20px 0;
-    font-size: large;
 }
