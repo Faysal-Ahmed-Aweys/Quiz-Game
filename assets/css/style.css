@@ -13,12 +13,19 @@ body {
     text-align: center;
     width: 100%;
     min-height: 100vh;
+    position: relative;
+    flex-direction: column;
     background-color: teal;
 }
 
 a {
     text-decoration: none;
     color: whitesmoke;
+}
+
+i {
+    font-size: 3rem;
+    margin: 10px 0;
 }
 
 /* generic classes */
@@ -69,6 +76,12 @@ a {
 }
 
 /* header */
+
+#header {
+    border-bottom: 3px solid black;
+    margin-bottom: 20px;
+}
+
 #heading {
     font-size: 40px;
     width: 100%;
@@ -83,7 +96,7 @@ a {
 #difficulty-section {
     width: 90%;
     text-align: center;
-    height: 200px;
+    height: auto;
     margin: auto;
     margin-bottom: 20px;
     color: whitesmoke;
@@ -100,6 +113,7 @@ a {
 #home-button-about-page {
     width: 80%;
     margin: auto;
+    margin-bottom: 20px;
     background: black;
     color: whitesmoke;
     font-size: 30px;
@@ -111,6 +125,7 @@ a {
 #about-button {
     background-color: whitesmoke;
     color: black;
+    margin-bottom: 150px;
 }
 
 #chocolate {
@@ -184,4 +199,14 @@ a {
 
 .scored-text {
     font-size: 1.5rem;
+}
+
+/* footer */
+#footer {
+    width: 100%;
+    height: auto;
+    border-top: 3px solid black;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
 }

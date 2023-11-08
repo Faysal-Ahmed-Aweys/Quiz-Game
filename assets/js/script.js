@@ -31,9 +31,9 @@ const normalScoreText = document.getElementById('normal-score-text');
 const hardScoreText = document.getElementById('hard-score-text');
 const normalGameSummary = document.getElementById('normal-summary');
 const hardGameSummary = document.getElementById('hard-summary');
-// Global variables for when playing the game levels
+// Global constants for when playing the game levels
 const normalScorePoints = 20;
-const hardScorePoints = 40;
+const hardScorePoints = 40; 
 
 document.addEventListener("DOMContentLoaded", function () {
     startBtn.addEventListener('click', displayUsernameForm);
