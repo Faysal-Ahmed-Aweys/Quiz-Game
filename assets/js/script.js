@@ -1,50 +1,43 @@
+//Global constants
+//Home page DOM elements
 const homePage = document.getElementById('home-page');
 const totalScore = document.getElementById('total-score');
 const fancyName = document.getElementById('fancy-name');
 const nextFancyName = document.getElementById('next-fancy-name');
 const nextStatus = document.getElementById('next-status');
-const formSection = document.getElementById('form-section');
-const difficultyPage = document.getElementById('difficulty-section');
-const aboutPageHomeButton = document.getElementById('home-button-about-page');
-
-const aboutGameButton = document.getElementById('about-button');
-
 const chocolate = document.getElementById('chocolate');
-
+const startBtn = document.getElementById('start-button');
+const aboutGameButton = document.getElementById('about-button');
+const aboutPageHomeButton = document.getElementById('home-button-about-page');
+// Username page DOM elements
+const formSection = document.getElementById('form-section');
+// DIfficulty page DOM elements
+const difficultyPage = document.getElementById('difficulty-section');
 const normalButton = document.getElementById('normal-button');
 const hardButton = document.getElementById('hard-button');
-
+// Normal and hard game DOM elements
+const normalGameContainer = document.getElementById('normal-game-container');
+const hardGameContainer = document.getElementById('hard-game-container');
 const readyText = document.getElementById('ready');
 const countDownText = document.getElementById('countdown');
 const timerTextNormal = document.getElementById('timer-normal');
 const timerTextHard = document.getElementById('timer-hard');
-
-const normalGameContainer = document.getElementById('normal-game-container');
-const hardGameContainer = document.getElementById('hard-game-container');
-
-const normalTotalScore = document.getElementById('normal-total-score');
-const hardTotalScore = document.getElementById('total-hard-summary-score');
-
-const normalScoreHolder = document.getElementById('normal-scoreholder');
 const normalQuestion = document.getElementById('normal-question');
 const hardQuestion = document.getElementById('hard-question');
 const normalAnswerBtns = document.getElementById('normal-answer-btns');
 const hardAnswerBtns = document.getElementById('hard-answer-btns');
 const heading = document.getElementById('heading');
-
 const normalScoreText = document.getElementById('normal-score-text');
 const hardScoreText = document.getElementById('hard-score-text');
-
 const normalGameSummary = document.getElementById('normal-summary');
 const hardGameSummary = document.getElementById('hard-summary');
-
+// Global variables for when playing the game levels
 const normalScorePoints = 20;
 const hardScorePoints = 40;
 
 document.addEventListener("DOMContentLoaded", function () {
-    let startBtn = document.getElementById('start-button');
-    aboutGameButton.addEventListener('click', showGameRules);
     startBtn.addEventListener('click', displayUsernameForm);
+    aboutGameButton.addEventListener('click', showGameRules);
 });
 
 window.onload = function () {
@@ -286,7 +279,6 @@ function startNormalLevel() {
 
     availableQuestions = [...normalQuestions];
     normalScoreText.innerText = ` 0 / 100`;
-    normalTotalScore.innerHTML = 100;
     questionCounter = 0;
     score = 0;
     getNewNormalQuestion();
