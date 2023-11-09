@@ -1,5 +1,6 @@
 //Global constants
 //Home page DOM elements
+const header = document.getElementById('header');
 const homePage = document.getElementById('home-page');
 const totalScore = document.getElementById('total-score');
 const fancyName = document.getElementById('fancy-name');
@@ -27,11 +28,11 @@ const normalQuestion = document.getElementById('normal-question');
 const hardQuestion = document.getElementById('hard-question');
 const normalAnswerBtns = document.getElementById('normal-answer-btns');
 const hardAnswerBtns = document.getElementById('hard-answer-btns');
-const heading = document.getElementById('heading');
 const normalScoreText = document.getElementById('normal-score-text');
 const hardScoreText = document.getElementById('hard-score-text');
 const normalGameSummary = document.getElementById('normal-summary');
 const hardGameSummary = document.getElementById('hard-summary');
+const footer = document.getElementById('footer');
 // Global constants for when playing the game levels
 const normalScorePoints = 20;
 const hardScorePoints = 40;
@@ -141,6 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         formSection.classList.add('hidden');
         difficultyPage.classList.remove('hidden');
+        greetingDifficultyPage.style.color = "black";
         handleDifficultySelection();
     }
 
@@ -199,7 +201,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /**
-     * takes normal questions and resets variables like score before a question is displayed. prepares for normal game level.
+     * resets variables like score before a question is displayed. prepares for normal game level.
     */
     function startNormalLevel() {
         const normalQuestions = [
@@ -501,7 +503,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /**
-     * 
+     * Displays a new normal question as long as max questions for the game is not reached.
+     * if max questions are reached, it displays normal summary page.
     */
     function getNewNormalQuestion() {
         let MAX_QUESTIONS = 5;
@@ -562,7 +565,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /**
-     * 
+     * Displays a new hard question as long as max questions for the game is not reached.
+     * if max questions are reached, it displays hard summary page.
     */
     function getNewHardQuestion() {
         let MAX_QUESTIONS = 10;
@@ -621,7 +625,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    intervalTimerNormal = () => {
+    /**
+     * Sets a countdown for each normal question. If the countdown runs out it displays the correct answer to the question. 
+     */
+    function intervalTimerNormal() {
         let count = 6;
         let timer = setInterval(function () {
             console.log(count);
@@ -695,7 +702,10 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     };
 
-    intervalTimerHard = () => {
+    /**
+     * Sets a countdown for each hard question. If the countdown runs out it displays the correct answer to the question. 
+     */
+    function intervalTimerHard() {
         let count = 11;
         let timer = setInterval(function () {
             timerTextHard.innerHTML = count - 1;
@@ -770,7 +780,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     /**
-     * 
+     * Adds to the score in the game the amount of score each question is worth.
     */
     function incrementScore(num) {
         score += num;

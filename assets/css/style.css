@@ -58,14 +58,6 @@ a {
     cursor: pointer;
 }
 
-.red {
-    background-color: red;
-}
-
-.green {
-    background-color: green;
-}
-
 .uppercase {
     text-transform: uppercase;
 }
@@ -120,7 +112,6 @@ a {
     margin: 20px 0;
 }
 
-/* home page */
 #about-button {
     background-color: whitesmoke;
     color: black;
@@ -130,6 +121,7 @@ a {
     color: #FFFF00;
 }
 
+/* about the game page */
 #about-page {
     color: whitesmoke;
 }
@@ -149,14 +141,18 @@ a {
     padding: 20px;
     width: 50%;
     margin-bottom: 25px;
+    color: green;
+    background-color: whitesmoke;
 }
 
 .btn-difficulty:first-of-type {
     margin-top: 20px;
+    color: green;
 }
 
-.btn-difficulty:second-of-type {
+.btn-difficulty:last-of-type {
     margin-bottom: 50px;
+    color: red;
 }
 
 /* Normal and hard difficulty games */
@@ -170,6 +166,10 @@ a {
 .score-heading {
     font-size: 20px;
     margin-bottom: 50px;
+}
+
+.question {
+    font-size: 25px;
 }
 
 /* reused code for answer buttons in both normal and hard difficulty games */
@@ -199,13 +199,6 @@ a {
 }
 
 /* Normal and hard games summary pages */
-.btn-summary-page {
-    padding: 20px;
-    width: 70%;
-    font-size: 20px;
-    margin-top: 25px;
-}
-
 .scored-text {
     font-size: 1.5rem;
 }
@@ -223,4 +216,5 @@ a {
 .icon {
     font-size: 3rem;
     margin: 10px 0;
+    color: black;
 }

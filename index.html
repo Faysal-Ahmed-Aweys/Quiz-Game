@@ -123,14 +123,14 @@
         <button
           aria-label="normal difficulty"
           id="normal-button"
-          class="uppercase larger green btn btn-difficulty"
+          class="uppercase larger btn btn-difficulty"
         >
           Normal</button
         ><br /><br />
         <button
           aria-label="hard difficulty"
           id="hard-button"
-          class="uppercase larger red btn btn-difficulty"
+          class="uppercase larger btn btn-difficulty"
         >
           Hard</button
         ><br /><br />
@@ -145,7 +145,7 @@
       </section>
 
       <section id="ready" class="hidden margin-top">
-        <h1>Are you ready?</h1>
+        <h2>Are you ready?</h2>
         <span id="countdown"></span>
       </section>
 
@@ -154,7 +154,9 @@
         <h2 id="normal-scoreholder" class="uppercase score-heading">
           score:<span id="normal-score-text"> 0 / </span>
         </h2>
-        <h3 id="normal-question">Can you answer this question?</h3>
+        <h3 id="normal-question" class="question">
+          Can you answer this question?
+        </h3>
         <span id="timer-normal"></span>
         <!-- creating a div for answer buttons and then using JS to create the buttons was adapted from https://youtu.be/PBcqGxrr9g8?si=wFop-R1mBQ_KiAhY -->
         <div id="normal-answer-btns" class=""></div>
@@ -165,7 +167,9 @@
         <h2 id="hard-scoreholder" class="uppercase score-heading">
           score:<span id="hard-score-text"> 0 /</span>
         </h2>
-        <h3 id="hard-question">Can you answer this question?</h3>
+        <h3 id="hard-question" class="question">
+          Can you answer this question?
+        </h3>
         <span id="timer-hard"></span>
         <!-- creating a div for answer buttons and then using JS to create the buttons was adapted from https://youtu.be/PBcqGxrr9g8?si=wFop-R1mBQ_KiAhY -->
         <div id="hard-answer-btns" class=""></div>
@@ -188,6 +192,7 @@
       </section>
     </main>
 
+    <!-- footer -->
     <footer id="footer">
       <a
         href="https://github.com/Faysal-Ahmed-Aweys"
