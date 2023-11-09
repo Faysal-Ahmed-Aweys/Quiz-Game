@@ -41,7 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /** 
      *  checks if a username has been created and displays it on home page.
-     *  checks if the player gained some score and displays it on home page. 
+     *  checks if the player gained some score and displays it on home page as totalscore. 
+     *  based on the totalscore, it updates the user's status and next status.
     */
     window.onload = function () {
         let personUsername = localStorage.getItem('person-username');
@@ -94,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     /**
-     * hides home page and shows game rules page. Also shows home page if home button is clicked on
+     * Hides home page and shows about game page. Also hides about the game page and shows home page if home button is clicked on from about the game page.
     */
     function showGameRules() {
         let aboutPage = document.getElementById('about-page');
@@ -108,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /** 
-     * hides home page and displays username form page and handles username form submission to display difficulty page.
+     * hides home page and displays username form page and handles username form submission.
     */
     function displayUsernameForm() {
         homePage.classList.add('hidden');
@@ -120,8 +121,8 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     /**
-     * displays difficulty-selection page.
      * checks for and displays username on difficulty-selection page
+     * displays difficulty-page.
     */
     function displayDifficultyPage() {
         let personUsername = localStorage.getItem('person-username');
@@ -497,7 +498,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /**
-     * 
+     * displays a new normal level question as long as maximum questions is not reached.
     */
     function getNewNormalQuestion() {
         let MAX_QUESTIONS = 5;
@@ -556,7 +557,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /**
-     * 
+     * displays a new hard level question as long as maximum questions is not reached.
     */
     function getNewHardQuestion() {
         let MAX_QUESTIONS = 10;
@@ -614,7 +615,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    intervalTimerNormal = () => {
+    /**
+     * sets countdown for player to answer a normal level question.
+     * If the countdown runs out it clears countdown and shows the correct answer and calls for the function to display a new normal level question.
+     */
+    function intervalTimerNormal() {
         let count = 6;
         let timer = setInterval(function () {
             console.log(count);
@@ -658,6 +663,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }, 1000);
 
+        /**
+         * handles which answer is selected in normal game and displays feedback whether the answer is correct or not. 
+         * if a wrong answer is chosen, it displays the right answer.
+         */
         selectAnswerNormal = (e) => {
             clearInterval(timer);
             timerTextNormal.innerHTML = "";
@@ -688,7 +697,11 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     };
 
-    intervalTimerHard = () => {
+    /**
+     * sets countdown for player to answer a hard level question.
+     * If the countdown runs out it clears countdown and shows the correct answer and calls for the function to display a new hard level question.
+     */
+    function intervalTimerHard() {
         let count = 11;
         let timer = setInterval(function () {
             timerTextHard.innerHTML = count - 1;
@@ -732,6 +745,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }, 1000);
 
+        /**
+         * * handles which answer is selected in hard game and displays feedback whether the answer is correct or not. 
+         * if a wrong answer is chosen, it displays the right answer.
+         */
         selectAnswerHard = (e) => {
             clearInterval(timer);
             timerTextHard.innerHTML = "";
@@ -763,7 +780,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     /**
-     * 
+     * handles which of the play again or next level or home button is clicked on from normal level game summary page and based on that displays the game level countdown or home page.
     */
     function handleLevelSelectionNormal() {
         let playAgainNormal = document.getElementById('play-again-normal');
@@ -836,7 +853,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /**
-     * 
+     * handles which of the play again home button is clicked on from hard level game summary page and based on that displays the game level countdown or home page.
     */
     function handleLevelSelectionHard() {
         let playAgainHard = document.getElementById('play-again-hard');
@@ -881,10 +898,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /**
-     * 
+     * adds to the score in the game the amount each question is worth.
     */
-    function incrementScore(num) {
-        score += num;
+    function incrementScore(number) {
+        score += number;
         normalScoreText.innerText = ` ${score} / 100`;
         hardScoreText.innerHTML = ` ${score} / 400`;
     }
