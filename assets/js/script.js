@@ -12,6 +12,7 @@ const aboutPageHomeButton = document.getElementById('home-button-about-page');
 // Username page DOM elements
 const formSection = document.getElementById('form-section');
 // DIfficulty page DOM elements
+const greetingDifficultyPage = document.getElementById('greeting');
 const difficultyPage = document.getElementById('difficulty-section');
 const normalButton = document.getElementById('normal-button');
 const hardButton = document.getElementById('hard-button');
@@ -41,8 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /** 
      *  checks if a username has been created and displays it on home page.
-     *  checks if the player gained some score and displays it on home page as totalscore. 
-     *  based on the totalscore, it updates the user's status and next status.
+     *  checks if the player gained some score and displays it on home page. 
     */
     window.onload = function () {
         let personUsername = localStorage.getItem('person-username');
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     /**
-     * Hides home page and shows about game page. Also hides about the game page and shows home page if home button is clicked on from about the game page.
+     * hides home page and shows game rules page. Also shows home page if home button is clicked on
     */
     function showGameRules() {
         let aboutPage = document.getElementById('about-page');
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /** 
-     * hides home page and displays username form page and handles username form submission.
+     * hides home page and displays username form page and handles username form submission to display difficulty page.
     */
     function displayUsernameForm() {
         homePage.classList.add('hidden');
@@ -121,8 +121,8 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     /**
+     * displays difficulty-selection page.
      * checks for and displays username on difficulty-selection page
-     * displays difficulty-page.
     */
     function displayDifficultyPage() {
         let personUsername = localStorage.getItem('person-username');
@@ -150,6 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function handleDifficultySelection() {
         normalButton.addEventListener('click', function () {
             difficultyPage.classList.add('hidden');
+            countDownText.classList.remove('hidden');
             readyText.classList.remove('hidden');
             let count = 4;
             let readyCountdownNormal = setInterval(function () {
@@ -174,6 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         hardButton.addEventListener('click', function () {
             difficultyPage.classList.add('hidden');
+            countDownText.classList.remove('hidden');
             readyText.classList.remove('hidden');
             let count = 4;
             let readyCountdownHard = setInterval(function () {
@@ -494,11 +496,12 @@ document.addEventListener("DOMContentLoaded", function () {
         hardScoreText.innerHTML = ` 0 / 400`;
         questionCounter = 0;
         score = 0;
+        count = 0;
         getNewHardQuestion();
     }
 
     /**
-     * displays a new normal level question as long as maximum questions is not reached.
+     * 
     */
     function getNewNormalQuestion() {
         let MAX_QUESTIONS = 5;
@@ -526,8 +529,10 @@ document.addEventListener("DOMContentLoaded", function () {
             let normalTotalScore = document.getElementById('total-normal-summary-score');
 
             normalGameContainer.classList.add('hidden');
-            normalGameSummary.classList.remove('hidden');
-            handleLevelSelectionNormal();
+            difficultyPage.classList.remove('hidden');
+            normalButton.innerHTML = "Play Again";
+            hardButton.innerHTML = "Next Level";
+            greetingDifficultyPage.innerHTML = normalScoreSummary.innerHTML;
         } else {
 
 
@@ -557,7 +562,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /**
-     * displays a new hard level question as long as maximum questions is not reached.
+     * 
     */
     function getNewHardQuestion() {
         let MAX_QUESTIONS = 10;
@@ -583,10 +588,11 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem('totalScore', totalScored);
             console.log(totalScored);
 
-            hardQuestion.classList.add('hidden');
             hardGameContainer.classList.add('hidden');
-            hardGameSummary.classList.remove('hidden');
-            handleLevelSelectionHard();
+            difficultyPage.classList.remove('hidden');
+            normalButton.remove();
+            hardButton.innerHTML = "Play Again";
+            greetingDifficultyPage.innerHTML = hardScoreSummary.innerHTML;
 
         } else {
             intervalTimerHard();
@@ -615,11 +621,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    /**
-     * sets countdown for player to answer a normal level question.
-     * If the countdown runs out it clears countdown and shows the correct answer and calls for the function to display a new normal level question.
-     */
-    function intervalTimerNormal() {
+    intervalTimerNormal = () => {
         let count = 6;
         let timer = setInterval(function () {
             console.log(count);
@@ -663,10 +665,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }, 1000);
 
-        /**
-         * handles which answer is selected in normal game and displays feedback whether the answer is correct or not. 
-         * if a wrong answer is chosen, it displays the right answer.
-         */
         selectAnswerNormal = (e) => {
             clearInterval(timer);
             timerTextNormal.innerHTML = "";
@@ -697,11 +695,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     };
 
-    /**
-     * sets countdown for player to answer a hard level question.
-     * If the countdown runs out it clears countdown and shows the correct answer and calls for the function to display a new hard level question.
-     */
-    function intervalTimerHard() {
+    intervalTimerHard = () => {
         let count = 11;
         let timer = setInterval(function () {
             timerTextHard.innerHTML = count - 1;
@@ -745,10 +739,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }, 1000);
 
-        /**
-         * * handles which answer is selected in hard game and displays feedback whether the answer is correct or not. 
-         * if a wrong answer is chosen, it displays the right answer.
-         */
         selectAnswerHard = (e) => {
             clearInterval(timer);
             timerTextHard.innerHTML = "";
@@ -780,128 +770,10 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     /**
-     * handles which of the play again or next level or home button is clicked on from normal level game summary page and based on that displays the game level countdown or home page.
+     * 
     */
-    function handleLevelSelectionNormal() {
-        let playAgainNormal = document.getElementById('play-again-normal');
-        let nextLevel = document.getElementById('next-level');
-        let homeButtonNormal = document.getElementById('home-button-normal');
-
-        playAgainNormal.addEventListener('click', () => {
-            Array.from(normalAnswerBtns.children).forEach(button => {
-                button.classList.add('hidden');
-            });
-            normalGameSummary.classList.add('hidden');
-            readyText.classList.remove('hidden');
-            let count = 3;
-            let readyCountdownNormal = setInterval(function () {
-                countDownText.innerHTML = count;
-                count--;
-                if (count < 0) {
-                    countDownText.innerHTML = "";
-                };
-
-            }, 1000);
-            countDownText.classList.remove('hidden');
-            setTimeout(() => {
-                normalGameContainer.classList.remove('hidden');
-                startNormalLevel();
-                clearInterval(readyCountdownNormal);
-                countDownText.classList.add('hidden');
-                readyText.classList.add('hidden');
-            }, 4000);
-        });
-
-        nextLevel.addEventListener('click', () => {
-            normalGameSummary.classList.add('hidden');
-            readyText.classList.remove('hidden');
-            hardQuestion.classList.add('hidden');
-            let count = 3;
-            let readyCountdownNormal = setInterval(function () {
-                countDownText.innerHTML = count;
-                count--;
-                if (count < 0) {
-                    countDownText.innerHTML = "";
-                };
-
-            }, 1000);
-            countDownText.classList.remove('hidden');
-            Array.from(hardAnswerBtns.children).forEach(button => {
-                button.classList.add('hidden');
-            });
-            setTimeout(() => {
-                hardGameContainer.classList.remove('hidden');
-                startHardLevel();
-                clearInterval(readyCountdownNormal);
-                countDownText.classList.add('hidden');
-                readyText.classList.add('hidden');
-            }, 4000);
-
-        });
-
-        homeButtonNormal.addEventListener('click', () => {
-            heading.classList.remove('hidden');
-            homePage.classList.remove('hidden');
-            normalGameSummary.classList.add('hidden');
-            Array.from(normalAnswerBtns.children).forEach(button => {
-                button.classList.add('hidden');
-            });
-            Array.from(hardAnswerBtns.children).forEach(button => {
-                button.classList.add('hidden');
-            });
-        });
-    }
-
-    /**
-     * handles which of the play again home button is clicked on from hard level game summary page and based on that displays the game level countdown or home page.
-    */
-    function handleLevelSelectionHard() {
-        let playAgainHard = document.getElementById('play-again-hard');
-        let homeButtonHard = document.getElementById('home-button-hard');
-
-        playAgainHard.addEventListener('click', () => {
-            let hardGameContainer = document.getElementById('hard-game-container');
-            hardGameSummary.classList.add('hidden');
-            Array.from(hardAnswerBtns.children).forEach(button => {
-                button.classList.add('hidden');
-            });
-            readyText.classList.remove('hidden');
-            hardQuestion.classList.add('hidden');
-            let count = 3;
-            let readyCountdownNormal = setInterval(function () {
-                countDownText.innerHTML = count;
-                count--;
-                if (count < 0) {
-                    countDownText.innerHTML = "";
-                };
-
-            }, 1000);
-            countDownText.classList.remove('hidden');
-            setTimeout(() => {
-                hardGameContainer.classList.remove('hidden');
-                startHardLevel();
-                clearInterval(readyCountdownNormal);
-                countDownText.classList.add('hidden');
-                readyText.classList.add('hidden');
-            }, 4000);
-        });
-
-        homeButtonHard.addEventListener('click', () => {
-            let hardGameContainer = document.getElementById('hard-game-container');
-            heading.classList.remove('hidden');
-            homePage.classList.remove('hidden');
-            hardGameSummary.classList.add('hidden');
-            Array.from(hardAnswerBtns.children).forEach(button => {
-                button.classList.add('hidden');
-            });
-        });
-    }
-
-    /**
-     * adds to the score in the game the amount each question is worth.
-    */
-    function incrementScore(number) {
-        score += number;
+    function incrementScore(num) {
+        score += num;
         normalScoreText.innerText = ` ${score} / 100`;
         hardScoreText.innerHTML = ` ${score} / 400`;
     }

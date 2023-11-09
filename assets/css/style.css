@@ -127,7 +127,11 @@ a {
 }
 
 #chocolate {
-    color: chocolate;
+    color: #FFFF00;
+}
+
+#about-page {
+    color: whitesmoke;
 }
 
 /* username form page */
