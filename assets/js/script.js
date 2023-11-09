@@ -33,6 +33,8 @@ const hardScoreText = document.getElementById('hard-score-text');
 const normalScorePoints = 20;
 const hardScorePoints = 40;
 
+// this style of declaring question and answers is adapted from https://youtu.be/PBcqGxrr9g8?si=1JCeHg32pJ0xiC_F
+// i got these questions from games4real.com
 const normalQuestions = [
     {
         question: 'What is the orange part of an egg called?',
@@ -126,6 +128,7 @@ const normalQuestions = [
     }
 ];
 
+// i got these questions from kwizzbit.com
 const hardQuestions = [
     {
         question: 'How many rings does the planet saturn have?',
@@ -309,10 +312,8 @@ const hardQuestions = [
     }
 ];
 
-// these are variables that need to be set/reset before the game level begins.
+// these are variables that need to be set/reset before the game level begins. thanks to https://youtu.be/f4fB9Xg2JEY?si=a84jAEexHRQgBzeM
 let questionCounter = 0;
-let availableNormalQuestions = [...normalQuestions];
-let availableHardQuestions = [...hardQuestions];
 let score = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -484,9 +485,10 @@ document.addEventListener("DOMContentLoaded", function () {
      * if max questions are reached, it displays normal summary page.
     */
     function getNewNormalQuestion() {
-        let MAX_QUESTIONS = 5;
+        let maxQuestions = 5;
 
-        if (questionCounter >= MAX_QUESTIONS) {
+        if (questionCounter >= maxQuestions) {
+            // thanks https://youtu.be/f4fB9Xg2JEY?si=a84jAEexHRQgBzeM i understand localstorage
             localStorage.setItem('mostRecentScore', score);
             let normalScoreSummary = document.getElementById('normal-scoredText');
 
@@ -521,6 +523,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let currentQuestion = availableNormalQuestions[questionsIndex];
             normalQuestion.innerHTML = questionCounter + ". " + currentQuestion.question;
 
+            // creating answer buttons and using dataset 
             currentQuestion.answers.forEach(answer => {
                 const button = document.createElement('button');
                 button.innerHTML = answer.text;
@@ -531,7 +534,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
                 button.addEventListener('click', selectAnswerNormal);
             });
-            availableNormalQuestions = [...normalQuestions];
+
+            // thanks to https://youtu.be/f4fB9Xg2JEY?si=a84jAEexHRQgBzeM for this idea
             [...normalQuestions].splice(questionsIndex, 1);
         }
     }
@@ -541,8 +545,7 @@ document.addEventListener("DOMContentLoaded", function () {
      * if max questions are reached, it displays hard summary page.
     */
     function getNewHardQuestion() {
-        let availableQuestions = [...hardQuestions];
-        let MAX_QUESTIONS = 10;
+        let maxQuestions = 10;
 
         if (questionCounter >= MAX_QUESTIONS) {
             localStorage.setItem('mostRecentScore', score);
@@ -588,7 +591,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
                 button.addEventListener('click', selectAnswerHard);
             });
-            availableHardQuestions = [...normalQuestions];
             [...hardQuestions].splice(questionsIndex, 1);
         }
     }
@@ -637,6 +639,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }, 1000);
 
+        // This function is adapted from https://youtu.be/PBcqGxrr9g8?si=IqUf-CAsEKoGihkV
         selectAnswerNormal = (e) => {
             clearInterval(timer);
             timerTextNormal.innerHTML = "";
@@ -738,6 +741,7 @@ document.addEventListener("DOMContentLoaded", function () {
     /**
      * Adds to the score in the game the amount of score each question is worth.
     */
+    // thanks to https://youtu.be/f4fB9Xg2JEY?si=a84jAEexHRQgBzeM for this function.
     function incrementScore(num) {
         score += num;
         normalScoreText.innerText = ` ${score} / 100`;
