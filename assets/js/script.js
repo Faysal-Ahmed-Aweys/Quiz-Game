@@ -309,6 +309,7 @@ const hardQuestions = [
     }
 ];
 
+// these are variables that need to be set/reset before the game level begins.
 let questionCounter = 0;
 let availableNormalQuestions = [...normalQuestions];
 let availableHardQuestions = [...hardQuestions];
@@ -636,7 +637,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }, 1000);
 
-        let selectAnswerNormal = (e) => {
+        selectAnswerNormal = (e) => {
             clearInterval(timer);
             timerTextNormal.innerHTML = "";
             const selectedBtn = e.target;
@@ -707,7 +708,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }, 1000);
 
-        let selectAnswerHard = (e) => {
+        selectAnswerHard = (e) => {
             clearInterval(timer);
             timerTextHard.innerHTML = "";
             const selectedBtn = e.target;
