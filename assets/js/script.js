@@ -314,6 +314,8 @@ const hardQuestions = [
 
 // these are variables that need to be set/reset before the game level begins. thanks to https://youtu.be/f4fB9Xg2JEY?si=a84jAEexHRQgBzeM
 let questionCounter = 0;
+let availableNormalQuestions = [...normalQuestions];
+let availableHardQuestions = [...hardQuestions];
 let score = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
