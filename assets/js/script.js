@@ -1,6 +1,5 @@
 //Global constants
 //Home page DOM elements
-const header = document.getElementById('header');
 const homePage = document.getElementById('home-page');
 const totalScore = document.getElementById('total-score');
 const fancyName = document.getElementById('fancy-name');
@@ -17,7 +16,6 @@ const greetingDifficultyPage = document.getElementById('greeting');
 const difficultyPage = document.getElementById('difficulty-section');
 const normalButton = document.getElementById('normal-button');
 const hardButton = document.getElementById('hard-button');
-const homeButtonDifficultyPage = document.getElementById('home-button-normal');
 // Normal and hard game DOM elements
 const normalGameContainer = document.getElementById('normal-game-container');
 const hardGameContainer = document.getElementById('hard-game-container');
@@ -31,9 +29,6 @@ const normalAnswerBtns = document.getElementById('normal-answer-btns');
 const hardAnswerBtns = document.getElementById('hard-answer-btns');
 const normalScoreText = document.getElementById('normal-score-text');
 const hardScoreText = document.getElementById('hard-score-text');
-const normalGameSummary = document.getElementById('normal-summary');
-const hardGameSummary = document.getElementById('hard-summary');
-const footer = document.getElementById('footer');
 // Global constants for when playing the game levels
 const normalScorePoints = 20;
 const hardScorePoints = 40;
@@ -342,7 +337,6 @@ document.addEventListener("DOMContentLoaded", function () {
             fancyName.innerHTML = "Status: Beginner";
             chocolate.innerHTML = `${100 - totalScored}`;
             nextStatus.innerHTML = "Amateur";
-            console.log("it is ");
         } else if (totalScored < 200) {
             fancyName.innerHTML = "Status: Amateur";
             chocolate.innerHTML = `${200 - totalScored}`;
@@ -367,7 +361,6 @@ document.addEventListener("DOMContentLoaded", function () {
             let startBtn = document.getElementById('start-button');
             startBtn.addEventListener('click', displayDifficultyPage);
             formSection.remove();
-            console.log(personUsername);
             let homeGreeting = document.getElementById('home-greeting');
             homeGreeting.innerHTML = `Hello, ${personUsername}`;
             let greeting = document.getElementById('greeting');
@@ -414,7 +407,6 @@ document.addEventListener("DOMContentLoaded", function () {
             let username = document.getElementById('username');
             let usernameValue = username.value;
             localStorage.setItem('person-username', usernameValue);
-            console.log(usernameValue);
             greeting.innerHTML = `Hi ${usernameValue}, Choose Difficulty`;
         } else {
             let personUsername = localStorage.getItem('person-username');
@@ -438,7 +430,6 @@ document.addEventListener("DOMContentLoaded", function () {
             readyText.classList.remove('hidden');
             let count = 4;
             let readyCountdownNormal = setInterval(function () {
-                console.log(count);
                 count--;
                 countDownText.innerHTML = count;
                 if (count <= 0) {
@@ -452,7 +443,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 normalScoreText.innerText = " 0 / 100";
                 questionCounter = 0;
                 score = 0;
-                console.log(questionCounter);
                 readyText.classList.add('hidden');
                 getNewNormalQuestion();
                 clearInterval(readyCountdownNormal);
@@ -486,12 +476,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 readyText.classList.add('hidden');
             }, 4000);
         });
-
-        homeButtonDifficultyPage.addEventListener('click', function () {
-            difficultyPage.classList.add('hidden');
-            return window.location.assign('index.html');
-
-        });
     }
 
     /**
@@ -519,9 +503,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 normalScoreSummary.innerHTML = `You Scored ${NormalGainedScore} / 100 <br> You can do better!`;
             }
             localStorage.setItem('totalScore', totalScored);
-            console.log(totalScored);
-            let normalScore = document.getElementById('normal-summary-score');
-            let normalTotalScore = document.getElementById('total-normal-summary-score');
 
             normalGameContainer.classList.add('hidden');
             difficultyPage.classList.remove('hidden');
@@ -533,18 +514,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
             intervalTimerNormal();
             questionCounter++;
-            console.log(questionCounter);
             normalQuestion.classList.remove('hidden');
 
             let questionsIndex = Math.floor(Math.random() * availableNormalQuestions.length);
             let currentQuestion = availableNormalQuestions[questionsIndex];
-            console.log(currentQuestion);
-            console.log(questionsIndex);
             normalQuestion.innerHTML = questionCounter + ". " + currentQuestion.question;
 
             currentQuestion.answers.forEach(answer => {
                 const button = document.createElement('button');
-                console.log(button);
                 button.innerHTML = answer.text;
                 button.classList.add('btn');
                 normalAnswerBtns.appendChild(button);
@@ -555,7 +532,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             availableNormalQuestions = [...normalQuestions];
             [...normalQuestions].splice(questionsIndex, 1);
-            console.log(questionsIndex);
         }
     }
 
@@ -572,9 +548,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let hardScoreSummary = document.getElementById('hard-scoredText');
 
             let hardGainedScore = localStorage.getItem('mostRecentScore');
-            let hardScore = document.getElementById('hard-summary-score');
-            let hardTotalScore = document.getElementById('total-normal-summary-score');
-            totalScored = localStorage.getItem('totalScore');
+            let totalScored = localStorage.getItem('totalScore');
             if (totalScored > 0) {
                 totalScored = parseInt(totalScored) + parseInt(hardGainedScore);
             } else {
@@ -586,7 +560,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 hardScoreSummary.innerHTML = `You Scored ${hardGainedScore} / 400 <br> You can do better!`;
             }
             localStorage.setItem('totalScore', totalScored);
-            console.log(totalScored);
 
             hardGameContainer.classList.add('hidden');
             difficultyPage.classList.remove('hidden');
@@ -598,7 +571,6 @@ document.addEventListener("DOMContentLoaded", function () {
             intervalTimerHard();
 
             questionCounter++;
-            console.log(questionCounter);
             hardQuestion.classList.remove('hidden');
 
             let questionsIndex = Math.floor(Math.random() * availableQuestions.length);
@@ -607,7 +579,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             currentQuestion.answers.forEach(answer => {
                 const button = document.createElement('button');
-                console.log(button);
                 button.innerHTML = answer.text;
                 button.classList.add('btn');
                 hardAnswerBtns.appendChild(button);
@@ -616,6 +587,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
                 button.addEventListener('click', selectAnswerHard);
             });
+            availableHardQuestions = [...normalQuestions];
+            [...hardQuestions].splice(questionsIndex, 1);
         }
     }
 
@@ -625,7 +598,6 @@ document.addEventListener("DOMContentLoaded", function () {
     function intervalTimerNormal() {
         let count = 6;
         let timer = setInterval(function () {
-            console.log(count);
             timerTextNormal.innerHTML = count - 1;
             count--;
             if (count <= 0) {
@@ -664,19 +636,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }, 1000);
 
-        selectAnswerNormal = (e) => {
+        let selectAnswerNormal = (e) => {
             clearInterval(timer);
             timerTextNormal.innerHTML = "";
             const selectedBtn = e.target;
-            console.log(selectedBtn);
             const isCorrect = selectedBtn.dataset.correct === "true";
             if (isCorrect) {
                 selectedBtn.style.color = "green";
                 incrementScore(normalScorePoints);
-                console.log(isCorrect);
             } else {
                 selectedBtn.style.color = "red";
-                console.log(isCorrect);
             }
             Array.from(normalAnswerBtns.children).forEach(button => {
                 button.disabled = true;
@@ -701,7 +670,6 @@ document.addEventListener("DOMContentLoaded", function () {
         let count = 11;
         let timer = setInterval(function () {
             timerTextHard.innerHTML = count - 1;
-            console.log(count);
             count--;
             if (count <= 0) {
                 Array.from(hardAnswerBtns.children).forEach(button => {
@@ -739,19 +707,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }, 1000);
 
-        selectAnswerHard = (e) => {
+        let selectAnswerHard = (e) => {
             clearInterval(timer);
             timerTextHard.innerHTML = "";
             const selectedBtn = e.target;
-            console.log(selectedBtn);
             const isCorrect = selectedBtn.dataset.correct === "true";
             if (isCorrect) {
                 selectedBtn.style.color = "green";
                 incrementScore(hardScorePoints);
-                console.log(isCorrect);
             } else {
                 selectedBtn.style.color = "red";
-                console.log(isCorrect);
             }
             Array.from(hardAnswerBtns.children).forEach(button => {
                 button.disabled = true;
