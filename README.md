@@ -2,7 +2,7 @@
 
 Quiz Game is a general knowledge quiz game that enables you to test and expand your General knowledge capacity. Quizes are a fun and entertaining way to learn while challenging yourself. Getting a question wrong and the curiosity to find the answer makes it more likely that a person will not forget the answer to a question and will remember it for a long time. Quiz Game let's you take on a the challenge to test your general knowledge capacity and teach you while you're having fun. 
 
-[click here](https://faysal-ahmed-aweys.github.io/Muhammad-Ali/) to view the live website.
+[view live game.](https://faysal-ahmed-aweys.github.io/Quiz-Game/)
 
 ## **Planning Stage**
 
