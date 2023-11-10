@@ -121,6 +121,47 @@ the header has the following feature.
 
 ![not full score hard summary page](/assets/docs/screenshots/hardgame_summary_notfullscore.png)
 
+## **Future Enhancements**
+
+## **Testing**
+
+### **Validator testing**
+
+#### **HTML**
+
+![HTML Validator](/assets/docs/screenshots/html_validator.png)
+
+[HTML Validator link](https://validator.w3.org/nu/?doc=https%3A%2F%2Ffaysal-ahmed-aweys.github.io%2FQuiz-Game%2F)
+
+#### **HTML**
+
+![CSS Validator](/assets/docs/screenshots/css_validator.png)
+
+[CSS Validator link](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Ffaysal-ahmed-aweys.github.io%2FQuiz-Game&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+
+#### **JavaScript**
+
+![JSHint before](/assets/docs/screenshots/before_JSHint.png)
+
+![JSHint after](/assets/docs/screenshots/after_JSHint.png)
+
+### **lighthouse testing**
+
+![lighthouse testing before](/assets/docs/screenshots/lighthouse_test1.png)
+
+![lighthouse testing after](/assets/docs/screenshots/lighthouse_test2.png)
+
+### **accessibility testing**
+
+![Accesibility testing](/assets/docs/screenshots/accessibility_test.png)
+
+| User Story                                                                            | Expected Result                                                                                                                           | Pass    |
+|---------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| See different levels of difficulty to make the game less boring, more challenging and useful while it is also fun.                                                 | The game has two levels of difficulty. Normal and hard. Normal level is easier and hard level challenging.                                                                     | &check; |
+| Have my score recorded and get a feedback at the end of each game. | The game records how much score the player gets in each game and displays a summary page at the end to show how the player did.                              | &check; |
+| See the correct answer after i get a question wrong.             | The correct answer is displayed with green color and the wrong answer is displayed with a red color                                                                                           | &check; |
+|Questions to be understandable and clear  | Questions are clear and understandable and they are multiple choice type of questions since it is a quiz game.                                                                                        | &check; |
+| See that a single game does not have too much questions. The number of questions should be short so not to make it boring and tiring.                                    | Normal level game has 5 questions and hard level game has 10 questions. they are which are not too much and less boring and tiring to play.                                    | &check; |
 
 ## **Deployment**
 
@@ -134,3 +175,28 @@ I deployed my website on github pages with these steps:
 4. The website was deployed and can be found under deployments on the right menu of the repository.
 
 Here is the link to my live website [Quiz Game](https://faysal-ahmed-aweys.github.io/Quiz-Game)
+
+## **Credits**
+
+### **honourable mentions**
+
+I would like to thank my mentor David Bowers. He has been of a great help throughout the course of my project. I would like to thank him for introducing me to JS Hint.
+
+I would like to thank my sister Maryan Aweys who has helped me with choosing colors and designing my website.
+
+I would like to thank my 8 years old nephew. He likes playing games and through his infinite experience of playing games, he gave me the idea of using total score and status names.
+
+I would like to thank my sister Aliya Aweys and my friend Abdurahman Yusuf for testing my game and raising feedback. 
+
+### **Content**
+* The social icon in the footer are from [Font Awesome](https://fontawesome.com/)
+* I used [WAVE - Web accessibility evaluation tool](https://wave.webaim.org/) to check accesibility of the web pages.
+* i used [amiresponsive](https://ui.dev/) to check responsiveness of my website.
+* All fonts used are from [Google Fonts](https://fonts.google.com/)
+
+### **Media and design**
+* I created the favicon using [favicon.io](https://favicon.io/)
+* I used [Balsamiq](https://balsamiq.com/) to create Wireframes.
+* fonts used are from [Google Fonts](https://fonts.google.com/)
+* i used [iloveimg](https://www.iloveimg/) to crop screenshots
+
