@@ -59,3 +59,15 @@ As a user, I would like to:
 ### **Fonts**
 
 ## **Current common Features on all pages**
+
+### **Header**
+the header has the following feature.
+
+#### **title**
+![title](/assets/docs/screenshots/gametitle.png)
+
+### **Footer**
+
+![footer](/assets/docs/screenshots/gamefooter.png)
+
+## **Individual page Features**
