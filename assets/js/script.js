@@ -16,6 +16,7 @@ const greetingDifficultyPage = document.getElementById('greeting');
 const difficultyPage = document.getElementById('difficulty-section');
 const normalButton = document.getElementById('normal-button');
 const hardButton = document.getElementById('hard-button');
+const homeButtonDifficultyPage = document.getElementById('home-button-normal');
 // Normal and hard game DOM elements
 const normalGameContainer = document.getElementById('normal-game-container');
 const hardGameContainer = document.getElementById('hard-game-container');
@@ -479,6 +480,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 countDownText.classList.add('hidden');
                 readyText.classList.add('hidden');
             }, 4000);
+        });
+        homeButtonDifficultyPage.addEventListener('click', function () {
+            difficultyPage.classList.add('hidden');
+            return window.location.assign('index.html');
+
         });
     }
 

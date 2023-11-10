@@ -23,6 +23,12 @@ a {
     color: whitesmoke;
 }
 
+h3,
+h4,
+h5 {
+    font-size: 20px;
+}
+
 /* generic classes */
 .hidden {
     display: none;
@@ -209,6 +215,11 @@ a {
     padding: 10px;
     position: absolute;
     bottom: 0;
+}
+
+#footer p {
+    font-size: 20px;
+    color: white;
 }
 
 .icon {
