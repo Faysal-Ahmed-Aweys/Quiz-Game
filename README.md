@@ -30,3 +30,26 @@ As a user, I would like to:
 5. To add a countdown to answer each question so the user does not have time to google the answer if they don't know.
 6. To become an entertaining and useful game that increases the user's general knowlegde capacity.
 
+### **wireframes**
+
+  * Mobile wireframes:
+    * [Home page](assets/docs/wireframes/home_page_mobile.png)
+    * [about game page](assets/docs/wireframes/about_the_game_mobile.png)
+    * [username page](assets/docs/wireframes/username_form_page_mobile.png)
+    * [difficulty page](assets/docs/wireframes/difficulty_page_mobile.png)
+    * [before game countdown](assets/docs/wireframes/before_game_start_countdown_mobile.png)
+    * [normal/hard games stage](assets/docs/wireframes/normal%3Ahard_game_stage_mobile.png)
+    * [normal summary page](assets/docs/wireframes/normal_game_summary_page_mobile.png)
+    * [hard summary page](assets/docs/wireframes/hard_game_summary_page_mobile.png)
+
+  * desktop wireframes:
+    * [Home page](assets/docs/wireframes/home_page_desktop.png)
+    * [about game page](assets/docs/wireframes/about_game_desktop.png)
+    * [username page](assets/docs/wireframes/username_form_desktop.png)
+    * [difficulty page](assets/docs/wireframes/difficulty_page_desktop.png)
+    * [before game countdown](assets/docs/wireframes/before_game_start_countdown_desktop.png)
+    * [normal/hard games stage](assets/docs/wireframes/normal%3Ahard_game_stage_desktop.png)
+    * [normal summary page](assets/docs/wireframes/normal_game_summary_desktop.png)
+    * [hard summary page](assets/docs/wireframes/hard_game_summary_desktop.png)
+
+

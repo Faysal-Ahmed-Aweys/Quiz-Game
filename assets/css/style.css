@@ -9,7 +9,7 @@
 }
 
 body {
-    font-family: "DM Sans", "san serif";
+    font-family: "DM Sans", sans-serif;
     text-align: center;
     width: 100%;
     min-height: 100vh;
