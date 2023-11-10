@@ -52,4 +52,10 @@ As a user, I would like to:
     * [normal summary page](assets/docs/wireframes/normal_game_summary_desktop.png)
     * [hard summary page](assets/docs/wireframes/hard_game_summary_desktop.png)
 
+### **color scheme:**
 
+![screenshot showing different colors used on the website](/assets/docs/screenshots/colorscheme.png)
+
+### **Fonts**
+
+## **Current common Features on all pages**
