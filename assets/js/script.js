@@ -490,7 +490,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let maxQuestions = 5;
 
         if (questionCounter >= maxQuestions) {
-            // thanks https://youtu.be/f4fB9Xg2JEY?si=a84jAEexHRQgBzeM i understand localstorage
+            // thanks https://youtu.be/f4fB9Xg2JEY?si=a84jAEexHRQgBzeM for introducing me to localstorage.
             localStorage.setItem('mostRecentScore', score);
             let normalScoreSummary = document.getElementById('normal-scoredText');
 
@@ -549,7 +549,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function getNewHardQuestion() {
         let maxQuestions = 10;
 
-        if (questionCounter >= MAX_QUESTIONS) {
+        if (questionCounter >= maxQuestions) {
             localStorage.setItem('mostRecentScore', score);
             let hardScoreSummary = document.getElementById('hard-scoredText');
 
@@ -579,8 +579,8 @@ document.addEventListener("DOMContentLoaded", function () {
             questionCounter++;
             hardQuestion.classList.remove('hidden');
 
-            let questionsIndex = Math.floor(Math.random() * availableQuestions.length);
-            let currentQuestion = availableQuestions[questionsIndex];
+            let questionsIndex = Math.floor(Math.random() * availableHardQuestions.length);
+            let currentQuestion = availableHardQuestions[questionsIndex];
             hardQuestion.innerHTML = questionCounter + ". " + currentQuestion.question;
 
             currentQuestion.answers.forEach(answer => {
@@ -621,7 +621,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }, 1000);
                 setTimeout(() => {
                     Array.from(normalAnswerBtns.children).forEach(button => {
-                        button.classList.add('hidden');
+                        button.style.display = "none";
                     });
                     normalQuestion.classList.add('hidden');
                 }, 2000);
@@ -641,7 +641,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }, 1000);
 
-        // This function is adapted from https://youtu.be/PBcqGxrr9g8?si=IqUf-CAsEKoGihkV
+        // some of the code in this function is adapted from https://youtu.be/PBcqGxrr9g8?si=IqUf-CAsEKoGihkV
         selectAnswerNormal = (e) => {
             clearInterval(timer);
             timerTextNormal.innerHTML = "";
@@ -661,7 +661,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             setTimeout(() => {
                 Array.from(normalAnswerBtns.children).forEach(button => {
-                    button.classList.add('hidden');
+                    button.style.display = "none";
                 });
                 normalQuestion.classList.add('hidden');
                 getNewNormalQuestion();
@@ -693,7 +693,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }, 1000);
                 setTimeout(() => {
                     Array.from(hardAnswerBtns.children).forEach(button => {
-                        button.classList.add('hidden');
+                        button.style.display = "none";
                     });
                     hardQuestion.classList.add('hidden');
                 }, 2000);
@@ -732,7 +732,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             setTimeout(() => {
                 Array.from(hardAnswerBtns.children).forEach(button => {
-                    button.classList.add('hidden');
+                    button.style.display = "none";
                 });
                 hardQuestion.classList.add('hidden');
                 getNewHardQuestion();
