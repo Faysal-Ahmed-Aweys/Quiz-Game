@@ -120,3 +120,17 @@ the header has the following feature.
 #### **not full score**
 
 ![not full score hard summary page](/assets/docs/screenshots/hardgame_summary_notfullscore.png)
+
+
+## **Deployment**
+
+Following advice from walthrough projects of Code isntitute web development course and my mentor, David Bowers, i Deployed my website early.
+
+I deployed my website on github pages with these steps:
+
+1. I clicked on the settings on my repository.
+2. From the menu on the left, I clicked on pages.
+3. under source, i selected "deploy from a branch" and under branch, i selected "main" branch and the root folder. Then i clicked save.
+4. The website was deployed and can be found under deployments on the right menu of the repository.
+
+Here is the link to my live website [Quiz Game](https://faysal-ahmed-aweys.github.io/Quiz-Game)
