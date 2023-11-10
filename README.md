@@ -71,3 +71,52 @@ the header has the following feature.
 ![footer](/assets/docs/screenshots/gamefooter.png)
 
 ## **Individual page Features**
+
+### **Home page**
+
+![home page](/assets/docs/screenshots/homepage.png)
+
+
+### **about the game page**
+
+![about the game page](/assets/docs/screenshots/about_game.png)
+
+### **username page**
+
+![username page](/assets/docs/screenshots/username_page.png)
+
+### **difficulty page**
+
+![difficulty page](/assets/docs/screenshots/difficulty_page.png)
+
+### **Ready Countdown page**
+
+![Ready Countdown page](/assets/docs/screenshots/ready_countdown.png)
+
+### **game stage**
+
+#### **normal game stage**
+![normal game stage](/assets/docs/screenshots/normal_game_stage.png)
+
+#### **hard game stage**
+![hard game stage](/assets/docs/screenshots/hard_game_stage.png)
+
+### **normal game summary page**
+
+#### **full score**
+
+![full score normal summary page](/assets/docs/screenshots/normalgame_summary_fullscore.png)
+
+#### **not full score**
+
+![not full score normal summary page](/assets/docs/screenshots/normalgame_summary_notfullscore.png)
+
+### **hard game summary page**
+
+#### **full score**
+
+![full score hard summary page](/assets/docs/screenshots/hardgame_summary_fullscore.png)
+
+#### **not full score**
+
+![not full score hard summary page](/assets/docs/screenshots/hardgame_summary_notfullscore.png)
